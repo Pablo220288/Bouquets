@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@font-face {
+  font-family: Logo;
+  src: url("../../font/BlackZone-lgGze.otf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.nav {
+  position: fixed;
+  top: 2px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.555);
+}
+.nav .navContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+.nav .navContainer .logo {
+  display: flex;
+  align-items: center;
+  align-items: center;
+}
+.nav .navContainer .logo p {
+  font-family: Logo;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #fff;
+}
+.nav .navContainer .menu {
+  display: none;
+  justify-content: flex-end;
+  margin: 0 -10px;
+}
+.nav .navContainer .menu a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  position: relative;
+}
+.nav .navContainer .menu a span {
+  position: absolute;
+  background: #ae3200;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  transition: all 300ms ease-out;
+}
+.nav .navContainer .menu a:hover span {
+  width: 100%;
+}
+.nav .navContainer .menu .active span {
+  width: 100%;
+}
+.nav .navContainer .hamburger {
+  display: block;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.nav .navContainer .hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 6px;
+  z-index: 1;
+  transform-origin: 0 0;
+  transition: 0.4s;
+}
+.nav .navContainer .hamburger:hover span:nth-child(2) {
+  transform: translateX(6px);
+  border-radius: 6px;
+  background-color: #ae3200;
+}
+.nav .navContainer .is-active:hover span {
+  background-color: #ae3200;
+}
+.nav .navContainer .is-active span:nth-child(1) {
+  transform: translate(0px, 0px) rotate(45deg);
+}
+.nav .navContainer .is-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(15px);
+}
+.nav .navContainer .is-active span:nth-child(3) {
+  transform: translate(-2px, 1px) rotate(-45deg);
+}
+
+.nav-mobile {
+  opacity: 1;
+}
+.nav-mobile .nav-mobile-container {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.454);
+  transition: 0.5s;
+}
+.nav-mobile .nav-mobile-container a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.nav-mobile .nav-mobile-container a p {
+  -webkit-transform: skewY(10deg);
+  -moz-transform: skewY(10deg);
+  -o-transform: skewY(10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(1) {
+  -webkit-transform: skewY(-10deg);
+  -moz-transform: skewY(-10deg);
+  -o-transform: skewY(-10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(2) {
+  -webkit-transform: skewY(10deg);
+  -moz-transform: skewY(10deg);
+  -o-transform: skewY(10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(2) p {
+  -webkit-transform: skewY(-10deg);
+  -moz-transform: skewY(-10deg);
+  -o-transform: skewY(-10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(3) {
+  -webkit-transform: skewY(-10deg);
+  -moz-transform: skewY(-10deg);
+  -o-transform: skewY(-10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(4) {
+  -webkit-transform: skewY(10deg);
+  -moz-transform: skewY(10deg);
+  -o-transform: skewY(10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(4) p {
+  -webkit-transform: skewY(-10deg);
+  -moz-transform: skewY(-10deg);
+  -o-transform: skewY(-10deg);
+}
+.nav-mobile .nav-mobile-container a:nth-child(5) {
+  -webkit-transform: skewY(-10deg);
+  -moz-transform: skewY(-10deg);
+  -o-transform: skewY(-10deg);
+}
+.nav-mobile .nav-mobile-container a::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 0%;
+  height: 50px;
+  background-color: #ae3200;
+  z-index: -1;
+  transition: 0.5s;
+}
+.nav-mobile .nav-mobile-container a:hover::before {
+  width: 100%;
+}
+.nav-mobile .is-active {
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .nav .navContainer .hamburger {
+    display: none;
+  }
+  .nav .navContainer .menu {
+    display: flex;
+  }
+  .nav-mobile {
+    opacity: 0;
+  }
+}
+@keyframes animate {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+main {
+  position: relative;
+  overflow-y: hidden;
+}
+main .main_container {
+  position: relative;
+}
+main .main_container .fondo_home {
+  position: relative;
+  width: 100%;
+  height: calc(100vh + 100px);
+  background-image: url("/assets/home.jpg");
+  background-position: 75% 50%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+main .main_container .fondo_home .capa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5215686275);
+  z-index: -1;
+}
+main .main_container .main_slogan {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 1;
+}
+main .main_container .main_slogan h1 {
+  font-family: Logo;
+  font-size: 6rem;
+  text-shadow: 0 0 10px #000000;
+}
+main .main_container .main_slogan p {
+  font-size: 2rem;
+  font-style: italic;
+  text-shadow: 0 0 10px #000000;
+}
+main .main_container .main_slogan .boton {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: transparent;
+  margin-top: 10px;
+  position: relative;
+  border: none;
+  overflow: hidden;
+  transition: all 500ms ease-out;
+}
+main .main_container .main_slogan .boton .bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #ae3200 50%, #460000 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: absolute;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+main .main_container .main_slogan .boton .bg2 {
+  position: absolute;
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+main .main_container .main_slogan .boton .bg3 {
+  position: absolute;
+  animation-duration: 5s;
+}
+main .main_container .main_slogan .boton:hover {
+  transform: scale(1.05);
+  transition: all 500ms ease-out;
+}
+main .main_container .wabe {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: -1;
+}
+main .main_container .wabe img {
+  width: 100%;
+  height: 100px;
+  vertical-align: bottom;
+  filter: drop-shadow(-5px -5px 20px #000);
+}
+main .productosDestacados {
+  background-color: #fff;
+}
+main .productosDestacados h3 {
+  font-size: 4rem;
+  font-family: Logo;
+  text-align: center;
+  padding: 20px 0px 50px 0px;
+}
+main .productosDestacados .destacados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-auto-rows: 15rem;
+  gap: 1rem;
+  padding: 1rem;
+  justify-items: center;
+}
+main .productosDestacados .destacados .vinos {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
+  transition: all 300ms ease-out;
+}
+main .productosDestacados .destacados .vinos p {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-weight: bold;
+}
+main .productosDestacados .destacados .vinos .vinos_item {
+  width: 100%;
+  height: 100%;
+}
+main .productosDestacados .destacados .vinos:hover {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  bottom: 7px;
+  left: 48%;
+  transform: translate(-52%, 0%);
+}
+footer .copyright {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+@media (min-width: 1000px) {
+  main .main_container .fondo_home {
+    background-position: 50% 10%;
+  }
+  main .main_container .main_slogan {
+    left: 30%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+  }
+  main .main_container .main_slogan h1 {
+    align-self: flex-start;
+    font-size: 8rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

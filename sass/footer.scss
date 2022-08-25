@@ -1,0 +1,13 @@
+footer{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    bottom: 7px;
+    left: 48%;
+    transform: translate(-52%, 0%);
+    .copyright{
+        font-size: 10px;
+        font-weight: 600;
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,143 @@
+main{
+    position: relative;
+    overflow-y: hidden;
+    .main_container{
+        position: relative;
+        .fondo_home{
+            position: relative;
+            width: 100%;
+            height: calc(100vh + 100px);
+            background-image: url("/assets/home.jpg");
+            background-position: 75% 50%;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+            .capa{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #00000085;
+                z-index: -1;
+            }
+        }
+        .main_slogan{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding: 20px;
+            color: #ffffff;
+            text-align: center;
+            z-index: 1;
+            h1{
+                font-family: Logo;
+                font-size: 6rem;
+                text-shadow: 0 0 10px #000000;
+            }
+            p{
+                font-size: 2rem;
+                font-style: italic;
+                text-shadow: 0 0 10px #000000;
+            }
+            .boton{
+                text-decoration: none;
+                font-size: 1rem;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background: transparent;
+                margin-top: 10px;
+                position: relative;
+                border: none;
+                overflow: hidden;
+                transition: all 500ms ease-out;
+                .bg {
+                    animation:slide 3s ease-in-out infinite alternate;
+                    background-image: linear-gradient(-60deg, $colorRed 50%, #460000 50%);
+                    bottom:0;
+                    left:-50%;
+                    opacity:.5;
+                    position:absolute;
+                    right:-50%;
+                    top:0;
+                    z-index:-1;
+                }
+                
+                .bg2 {
+                  position: absolute;
+                  animation-direction:alternate-reverse;
+                  animation-duration:4s;
+                }
+                
+                .bg3 {
+                  position: absolute;
+                  animation-duration:5s;
+                }
+                &:hover{
+                    transform: scale(1.05);
+                    transition: all 500ms ease-out;
+                }
+            }
+        }
+        .wabe{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: -1;
+            img{
+                width: 100%;
+                height: 100px;
+                vertical-align: bottom;
+                filter: drop-shadow(-5px -5px 20px #000);
+            }
+        }
+    }
+    .productosDestacados{
+        background-color: #fff;
+        h3{
+            font-size: 4rem;
+            font-family: Logo;
+            text-align: center;
+            padding: 20px 0px 50px 0px;
+
+        }
+        .destacados{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%,15rem),1fr));
+            grid-auto-rows: 15rem;
+            gap: 1rem;
+            padding: 1rem;
+            justify-items: center;
+            .vinos{
+                position: relative;
+                width: 15rem;
+                height: 15rem;
+                box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
+                transition: all 300ms ease-out;
+                p{
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    font-weight: bold;
+                }
+                .vinos_item{
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover{
+                    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+     
+                }
+            }
+        }
+    }
+}

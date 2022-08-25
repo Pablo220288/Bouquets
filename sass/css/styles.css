@@ -230,7 +230,7 @@ main .main_container .fondo_home {
   position: relative;
   width: 100%;
   height: calc(100vh + 100px);
-  background-image: url("/assets/home.jpg");
+  background-image: url("../../assets/home.jpg");
   background-position: 75% 50%;
   background-size: cover;
   display: flex;
@@ -325,23 +325,23 @@ main .productosDestacados {
   background-color: #fff;
 }
 main .productosDestacados h3 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: Logo;
   text-align: center;
   padding: 20px 0px 50px 0px;
 }
 main .productosDestacados .destacados {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  grid-auto-rows: 15rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  grid-auto-rows: 20rem;
   gap: 1rem;
   padding: 1rem;
   justify-items: center;
 }
 main .productosDestacados .destacados .vinos {
   position: relative;
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 20rem;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
   transition: all 300ms ease-out;
 }

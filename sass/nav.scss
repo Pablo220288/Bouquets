@@ -15,7 +15,6 @@
         .logo{
             display: flex;
             align-items: center;
-            align-items: center;
             p{
                 font-family: Logo;
                 font-weight: 600;
@@ -25,6 +24,7 @@
         }
         .menu{
             display: none;
+            align-items: center;
             justify-content: flex-end;
             margin: 0 -10px;
             a{
@@ -44,38 +44,50 @@
                 &:hover span{
                     width: 100%;
                 }
+                .shop-nav{
+                    font-size: 1.2rem;
+                    vertical-align: middle;
+                }
             }
             .active span{
                 width: 100%;
             }
         }
-        .hamburger{
-            display: block;
-            position: relative;
-            z-index: 1;
-            user-select: none;
-            appearance: none;
-            border: none;
-            outline: none;
-            background: none;
-            cursor: pointer;
-            span{
-                display: block;
-                width: 25px;
-                height: 3px;
-                margin-bottom: 5px;
-                position: relative;
-                background-color: #fff;
-                border-radius: 6px;
-                z-index: 1;
-                transform-origin: 0 0;
-                transition: 0.4s;
+        .burger{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            a{
+                color: #fff;
+                font-size: 1.5rem;
             }
-            &:hover span:nth-child(2) {
-                transform: translateX(6px);
-                border-radius: 6px;
-                background-color: $colorRed;
-
+            .hamburger{
+                display: block;
+                position: relative;
+                z-index: 1;
+                user-select: none;
+                appearance: none;
+                border: none;
+                outline: none;
+                background: none;
+                cursor: pointer;
+                span{
+                    display: block;
+                    width: 25px;
+                    height: 3px;
+                    margin-bottom: 5px;
+                    position: relative;
+                    background-color: #fff;
+                    border-radius: 6px;
+                    z-index: 1;
+                    transform-origin: 0 0;
+                    transition: 0.4s;
+                }
+                &:hover span:nth-child(2) {
+                    transform: translateX(6px);
+                    border-radius: 6px;
+                    background-color: $colorRed;
+                }
             }
         }
         .is-active{
@@ -185,10 +197,152 @@
         top: 0;
     }
 }
+.modal-carrito{
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: #00000075;
+    display: flex;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+    .modal-container{
+        width: 90%;
+        max-width: 400px;
+        max-height: 90%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 1rem;
+        overflow-x: hidden;
+        position: relative;
+        transform: var(--transform);
+        transition: var(--transition);
+        .modal-title{
+            font-size: 3rem;
+            font-family: Logo;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .close-carrito{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        #conten-carrito{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            .item-carrito{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .vino_img_carrito{
+                    width: 80px;
+                }
+                .datos-item{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 10px;
+                    .precio-item{
+                        font-size: 1rem;
+                        font-style: italic;
+                    }
+                    .cant-item{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .delete-item{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        .total-carrito{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-top: 1px solid;
+            padding: 10px 5px;
+            .total-text{
+                font-weight: 500;
+                font-style: italic;
+            }
+            #total_carrito{
+                font-weight: 700;
+            }
+        }
+        
+        .buttons-carrito{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            .vaciar, .comprar{
+                border: none;
+                background: none;
+                width: 80px;
+                padding: 0.2rem;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                .button-icon{
+                    font-size: 2rem;
+                }
+                .button-text{
+                    opacity: 0;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 100%;
+                    height: 100%;
+                    background-color: #ffffff75;
+                    text-shadow: 0 0 10px #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.5s ease;
+                }
+                &:hover .button-text{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.modal_show{
+opacity: 1;
+pointer-events: unset;
+transition: opacity .6s;
+--transform: traslateY(0);
+--transition: transform .8s .8s;
+}
+
+
+
 
 @media(min-width:768px){
     .nav .navContainer{
-        .hamburger{
+        .burger{
             display: none;
         }
         .menu{

@@ -1,6 +1,6 @@
 main{
     position: relative;
-    overflow-y: hidden;
+    overflow-x: hidden;
     .main_container{
         position: relative;
         .fondo_home{
@@ -108,7 +108,6 @@ main{
             font-family: Logo;
             text-align: center;
             padding: 20px 0px 50px 0px;
-
         }
         .destacados{
             display: grid;
@@ -117,26 +116,113 @@ main{
             gap: 1rem;
             padding: 1rem;
             justify-items: center;
+            position: relative;
             .vinos{
                 position: relative;
                 width: 20rem;
                 height: 20rem;
                 box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
-                transition: all 300ms ease-out;
-                p{
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .price{
                     position: absolute;
-                    top: 5px;
+                    top: 10px;
                     right: 10px;
-                    font-weight: bold;
+                    width: 110px;
+                    height: 50px;
+                    background-image: url("/assets/price.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: 50%, 50%;
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    .precio{
+                        color: rgb(255, 255, 255);
+                        text-shadow: 0 0 10px #000000;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        z-index: 1;
+                        padding-right: 8px;
+                    }
                 }
-                .vinos_item{
-                    width: 100%;
-                    height: 100%;
+                .button-shop-destacados{
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    width: 35px;
+                    height: 35px;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    transition: all 300ms ease-out;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .icono-shop-destacados{
+                        font-size: 1.5rem;
+                        transition: all 300ms ease-out;
+                    }
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                    &:hover .icono-shop-destacados{
+                        transform: rotate(-5deg);
+                        color: #460000;
+                    }
+                }
+                .vino_img{
+                    width: 80%;
+                    height: 80%;
+                }
+                .variedad_xs{
+                    color: #9b9b9b;
+                }
+                .nombre_xs{
+                    font-size: 1.2rem;
+                    font-weight: 300;
                 }
                 &:hover{
                     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-     
                 }
+                &:hover .slaid{
+                    top: 0;
+                    opacity: 1;
+                }
+            }
+            .slaid{
+                display: none;
+                position: absolute;
+                color: rgb(0, 0, 0);
+                background-color: #ffffff9d;
+                width: 100%;
+                height: 100%;
+                top: 10%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                opacity: 0;
+                transition: all 0.5s ease;
+                cursor: pointer;
+                .nombre{
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                    font-style: italic;
+                }
+                .variedad{
+                    font-size: 1.2rem;
+                }
+                .bodega{
+                    font-size: 1.4rem;
+                }
+
             }
         }
     }

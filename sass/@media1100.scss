@@ -14,6 +14,28 @@
                 }
             }
         }
-        
+        .productosDestacados{
+            h3{
+                font-size: 4.5rem;
+            }
+            .destacados{
+                .vino_img{
+                    width: 100%;
+                    height: 100%;
+                }
+                .vinos{
+                    .nombre_xs{
+                        display: none;
+                    }
+                    .variedad_xs{
+                        display: none;
+                    }
+                }
+                .slaid{
+                    display: flex;
+                }
+
+            }
+        }
     }
 }

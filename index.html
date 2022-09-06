@@ -15,30 +15,57 @@
     <header>
         <nav class="nav">
             <div class="navContainer">
-                <div class="logo"><p>Bouquet</p></div>
+                <div class="logo"><p>B</p></div>
                 <div class="menu">
                     <a href="#home" class="active"><span></span>Inicio</a>
                     <a href="#"><span></span>Nosotros</a>
-                    <a href="#"><span></span>Tienda</a>
-                    <a href="#"><span></span>Productos</a>
+                    <a href="#"><span></span>Blog</a>
+                    <a href="#productosDestacados"><span></span>Productos</a>
                     <a href="#"><span></span>Contacto</a>
+                    <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon></a>
                 </div>
-                <button class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="burger">
+                    <a href="#" id="carrito_xs"><ion-icon name="cart-outline"></ion-icon></a>
+                    <button class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </nav>
         <nav class="nav-mobile">
             <div class="nav-mobile-container">
                 <a href="#"><p>Inicio</p></a>
                 <a href="#"><p>Nosotros</p></a>
-                <a href="#"><p>Tienda</p></a>
+                <a href="#"><p>Blog</p></a>
                 <a href="#"><p>Productos</p></a>
                 <a href="#"><p>Contacto</p></a>
             </div>
         </nav>
+        <div class="modal-carrito" id="modal-carrito">
+            <div class="modal-container">
+                <h3 class="modal-title">Bodega</h3>
+                <ion-icon class="close-carrito" id="close-carrito" name="close-outline"></ion-icon>
+                <div id="conten-carrito">
+
+                </div>
+                <div class="total-carrito">
+                    <p class="total-text">Total Carrito:</p>
+                    <p id="total_carrito">$</p>
+                </div>
+                <div class="buttons-carrito">
+                    <button class="vaciar" id="vaciar-carrito">
+                        <ion-icon class="button-icon" name="close-circle-outline"></ion-icon>
+                        <p class="button-text">Vaciar</p>
+                    </button>
+                    <button class="comprar" id="comprar">
+                        <ion-icon class="button-icon" name="card-outline"></ion-icon>
+                        <p class="button-text">Comprar</p>
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
         <div class="main_container" id="home">
@@ -56,50 +83,25 @@
                 </a>
             </div>
             <div class="wabe">
-                <img src="assets/SL-013020-27540-03 [Convertido].png" alt="">
+                <img src="assets/wabe.png" alt="Wabe">
             </div>
         </div>
         <div class="productosDestacados" id="productosDestacados">
             <h3>Productos Destacados</h3>
-            <div class="destacados">
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino1" src="assets/vino1.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino2" src="assets/vino2.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino3" src="assets/vino3.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino4" src="assets/vino4.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino5" src="assets/vino5.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino6" src="assets/vino6.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <img class="vinos_item" id="vino7" src="assets/vino7.jpeg" alt="Vino">
-                </div>
-                <div class="vinos">
-                    <p class="precio">$1500</p>
-                    <img class="vinos_item" id="vino8" src="assets/vino8.jpeg" alt="Vino">
-                </div>
-            </div>
+            <div class="destacados" id="destacados"></div>
         </div>
     </main>
 
     <footer>
         <span class="copyright">&copy;2022. - <strong>Pablo Hernandez </strong></span>
     </footer>
+
+    <!--Ionicons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <!--JavaScript-->
+    <script src="js/destacados.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

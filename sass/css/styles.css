@@ -35,7 +35,6 @@ html {
 .nav .navContainer .logo {
   display: flex;
   align-items: center;
-  align-items: center;
 }
 .nav .navContainer .logo p {
   font-family: Logo;
@@ -45,6 +44,7 @@ html {
 }
 .nav .navContainer .menu {
   display: none;
+  align-items: center;
   justify-content: flex-end;
   margin: 0 -10px;
 }
@@ -66,10 +66,23 @@ html {
 .nav .navContainer .menu a:hover span {
   width: 100%;
 }
+.nav .navContainer .menu a .shop-nav {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
 .nav .navContainer .menu .active span {
   width: 100%;
 }
-.nav .navContainer .hamburger {
+.nav .navContainer .burger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav .navContainer .burger a {
+  color: #fff;
+  font-size: 1.5rem;
+}
+.nav .navContainer .burger .hamburger {
   display: block;
   position: relative;
   z-index: 1;
@@ -80,7 +93,7 @@ html {
   background: none;
   cursor: pointer;
 }
-.nav .navContainer .hamburger span {
+.nav .navContainer .burger .hamburger span {
   display: block;
   width: 25px;
   height: 3px;
@@ -92,7 +105,7 @@ html {
   transform-origin: 0 0;
   transition: 0.4s;
 }
-.nav .navContainer .hamburger:hover span:nth-child(2) {
+.nav .navContainer .burger .hamburger:hover span:nth-child(2) {
   transform: translateX(6px);
   border-radius: 6px;
   background-color: #ae3200;
@@ -200,8 +213,148 @@ html {
   top: 0;
 }
 
+.modal-carrito {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4588235294);
+  display: flex;
+  transition: opacity 0.6s 0.9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+.modal-carrito .modal-container {
+  width: 90%;
+  max-width: 400px;
+  max-height: 90%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: hidden;
+  position: relative;
+  transform: var(--transform);
+  transition: var(--transition);
+}
+.modal-carrito .modal-container .modal-title {
+  font-size: 3rem;
+  font-family: Logo;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.modal-carrito .modal-container .close-carrito {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.modal-carrito .modal-container #conten-carrito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito .vino_img_carrito {
+  width: 80px;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito .datos-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito .datos-item .precio-item {
+  font-size: 1rem;
+  font-style: italic;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito .datos-item .cant-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-carrito .modal-container #conten-carrito .item-carrito .datos-item .delete-item {
+  font-size: 1.2rem;
+}
+.modal-carrito .modal-container .total-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-top: 1px solid;
+  padding: 10px 5px;
+}
+.modal-carrito .modal-container .total-carrito .total-text {
+  font-weight: 500;
+  font-style: italic;
+}
+.modal-carrito .modal-container .total-carrito #total_carrito {
+  font-weight: 700;
+}
+.modal-carrito .modal-container .buttons-carrito {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.modal-carrito .modal-container .buttons-carrito .vaciar, .modal-carrito .modal-container .buttons-carrito .comprar {
+  border: none;
+  background: none;
+  width: 80px;
+  padding: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.modal-carrito .modal-container .buttons-carrito .vaciar .button-icon, .modal-carrito .modal-container .buttons-carrito .comprar .button-icon {
+  font-size: 2rem;
+}
+.modal-carrito .modal-container .buttons-carrito .vaciar .button-text, .modal-carrito .modal-container .buttons-carrito .comprar .button-text {
+  opacity: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4588235294);
+  text-shadow: 0 0 10px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.modal-carrito .modal-container .buttons-carrito .vaciar:hover .button-text, .modal-carrito .modal-container .buttons-carrito .comprar:hover .button-text {
+  opacity: 1;
+}
+
+.modal_show {
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity 0.6s;
+  --transform: traslateY(0);
+  --transition: transform .8s .8s;
+}
+
 @media (min-width: 768px) {
-  .nav .navContainer .hamburger {
+  .nav .navContainer .burger {
     display: none;
   }
   .nav .navContainer .menu {
@@ -221,7 +374,7 @@ html {
 }
 main {
   position: relative;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 main .main_container {
   position: relative;
@@ -337,26 +490,113 @@ main .productosDestacados .destacados {
   gap: 1rem;
   padding: 1rem;
   justify-items: center;
+  position: relative;
 }
 main .productosDestacados .destacados .vinos {
   position: relative;
   width: 20rem;
   height: 20rem;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .productosDestacados .destacados .vinos .price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 110px;
+  height: 50px;
+  background-image: url("/assets/price.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%, 50%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+main .productosDestacados .destacados .vinos .price .precio {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 10px #000000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 1;
+  padding-right: 8px;
+}
+main .productosDestacados .destacados .vinos .button-shop-destacados {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 300ms ease-out;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .productosDestacados .destacados .vinos .button-shop-destacados .icono-shop-destacados {
+  font-size: 1.5rem;
   transition: all 300ms ease-out;
 }
-main .productosDestacados .destacados .vinos p {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-weight: bold;
+main .productosDestacados .destacados .vinos .button-shop-destacados:hover {
+  transform: scale(1.1);
 }
-main .productosDestacados .destacados .vinos .vinos_item {
-  width: 100%;
-  height: 100%;
+main .productosDestacados .destacados .vinos .button-shop-destacados:hover .icono-shop-destacados {
+  transform: rotate(-5deg);
+  color: #460000;
+}
+main .productosDestacados .destacados .vinos .vino_img {
+  width: 80%;
+  height: 80%;
+}
+main .productosDestacados .destacados .vinos .variedad_xs {
+  color: #9b9b9b;
+}
+main .productosDestacados .destacados .vinos .nombre_xs {
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 main .productosDestacados .destacados .vinos:hover {
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+main .productosDestacados .destacados .vinos:hover .slaid {
+  top: 0;
+  opacity: 1;
+}
+main .productosDestacados .destacados .slaid {
+  display: none;
+  position: absolute;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.6156862745);
+  width: 100%;
+  height: 100%;
+  top: 10%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+main .productosDestacados .destacados .slaid .nombre {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+main .productosDestacados .destacados .slaid .variedad {
+  font-size: 1.2rem;
+}
+main .productosDestacados .destacados .slaid .bodega {
+  font-size: 1.4rem;
 }
 
 footer {
@@ -393,6 +633,22 @@ footer .copyright {
   main .main_container .main_slogan h1 {
     align-self: flex-start;
     font-size: 8rem;
+  }
+  main .productosDestacados h3 {
+    font-size: 4.5rem;
+  }
+  main .productosDestacados .destacados .vino_img {
+    width: 100%;
+    height: 100%;
+  }
+  main .productosDestacados .destacados .vinos .nombre_xs {
+    display: none;
+  }
+  main .productosDestacados .destacados .vinos .variedad_xs {
+    display: none;
+  }
+  main .productosDestacados .destacados .slaid {
+    display: flex;
   }
 }
 

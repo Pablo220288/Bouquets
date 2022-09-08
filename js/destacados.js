@@ -1,13 +1,17 @@
+//Stock de Productos
 let productosDestacados = [
-  {id:1, nombre:"BENMARCO MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2017, precio:1675, cantidad: 10, img:"assets/BENMARCO MALBEC.jpeg"},
-  {id:2, nombre:"GRAN ENEMIGO GUALTALLARY", bodega:"Aleanna",variedad:"Cabernet Franc", año:2019, precio:8500, cantidad: 10, img:"assets/GRAN ENEMIGO GUALTALLARY.jpeg"},
-  {id:3, nombre:"NOSOTROS MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2019, precio:17000, cantidad: 10, img:"assets/NOSOTROS MALBEC.jpeg"}
+  {id:1, nombre:"BENMARCO MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2017, precio:1675, cantidad: 1, img:"assets/BENMARCO MALBEC.jpeg"},
+  {id:2, nombre:"GRAN ENEMIGO GUALTALLARY", bodega:"Aleanna",variedad:"Cabernet Franc", año:2019, precio:8500, cantidad: 1, img:"assets/GRAN ENEMIGO GUALTALLARY.jpeg"},
+  {id:3, nombre:"NOSOTROS MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2019, precio:17000, cantidad: 1, img:"assets/NOSOTROS MALBEC.jpeg"},
+  {id:4, nombre:"NICOLA CATENA BONARDA", bodega:"Catena Zapata",variedad:"Bonarda", año:2020, precio:11500, cantidad: 1, img:"assets/NICOLA CATENA BONARDA.jpeg"}
+
 ];
 
-const destacados = document.getElementById('destacados');
+//Incorporamos elementos del Stock al DOM
+let destacados = document.getElementById('destacados');
 
 productosDestacados.forEach((producto) => {
-  const div = document.createElement('div')
+  let div = document.createElement('div')
   div.classList.add('vinos')
   div.innerHTML = `
   <div class="price">
@@ -24,20 +28,31 @@ productosDestacados.forEach((producto) => {
   </div>`
   destacados.appendChild(div)
 
-  const button = document.getElementById(`agregar${producto.id}`)
+  //Boton para agregar al carrito
+  let button = document.getElementById(`agregar${producto.id}`)
   button.addEventListener('click', () => agregarCarrito(producto.id))
+
 });
 
 let carrito = [];
 
-const contenCarrito = document.getElementById('conten-carrito');
-
-const agregarCarrito = (idProducto) => {
-  let item = productosDestacados.find((product) => product.id === idProducto)
-  carrito.push(item)
+//Funcion para agragar elementos al carrito
+let agregarCarrito = (idProducto) => {
+  //Si el producto ya esta le sumo 1 a la Cantidad
+  if(carrito.some((item) => item.id === idProducto)){
+    let item = carrito.findIndex((product) => product.id === idProducto)
+    carrito[item].cantidad = carrito[item].cantidad + 1
+    llenarCarrito()
+  }else{
+    let item = productosDestacados.find((product) => product.id === idProducto)
+    carrito.push(item)
+  }
   llenarCarrito()
 };
 
+let contenCarrito = document.getElementById('conten-carrito');
+
+//LLenamos el carrito (DOM) con los elementos seleccionados
 const llenarCarrito = () =>{
   contenCarrito.innerHTML = ""
   carrito.forEach((producto) => {
@@ -49,20 +64,68 @@ const llenarCarrito = () =>{
         <p class="precio-item">$${producto.precio}</p>
         <div class="cant-item">
             <p>Cant.</p>
-            <p id="cant-item-num">${producto.cantidad}</p>
+            <div class="cant-carrito">
+              <ion-icon id="menosCantCarrito${producto.id}" class="arrow-carrito" name="chevron-back-outline"></ion-icon>
+              <p id="cant-item-num">${producto.cantidad}</p>
+              <ion-icon id="masCantCarrito${producto.id}" class="arrow-carrito"  name="chevron-forward-outline"></ion-icon>
+            </div>
         </div>
-        <ion-icon class="delete-item" id="delete-item" name="trash-outline"></ion-icon>
+        <ion-icon class="delete-item" id="delete-item${producto.id}" name="trash-outline"></ion-icon>
     </div>
     `
-    contenCarrito.appendChild(div)})
+    contenCarrito.appendChild(div)
+  
+    //Boton para eliminar Items del carrito
+    let deleteCarrito = document.getElementById(`delete-item${producto.id}`)
+    deleteCarrito.addEventListener('click', () => eliminarDelCarrito(producto.id))
 
-    let carritoTotal = carrito.reduce((acum,item) => acum + item.precio,0)
-
+    //Boton para sumar cantidad de un Items al carrito
+    let masEnCarrito = document.getElementById(`masCantCarrito${producto.id}`)
+    masEnCarrito.addEventListener('click',() => sumar(producto.id))
+  
+    //Boton para restar cantidad de un Items al carrito
+    let menosEnCarrito = document.getElementById(`menosCantCarrito${producto.id}`)
+    menosEnCarrito.addEventListener('click',() => restar(producto.id))
+  })
+    //Averiguamos monto total del carrito (Precio Item * Cantidad Item)
+    let carritoTotal = carrito.reduce((acum,item) => acum + item.precio * item.cantidad,0)
     const totalCarrito = document.getElementById('total_carrito')
     totalCarrito.innerHTML = `$${carritoTotal}`
-  };
+};
+
+//Funcion para eliminar Items del carrito
+let eliminarDelCarrito = (idProducto) => {
+  carrito.splice(carrito.findIndex((product) => product.id === idProducto),1)
+  llenarCarrito()
+};
+
+//Funcion para vaciar el carrito  
+let vaciarCarrito = document.getElementById('vaciar-carrito')
+vaciarCarrito.addEventListener('click', eliminarTodoElCarrito)
+
+function eliminarTodoElCarrito(){
+  carrito.splice(0,carrito.length)
+  llenarCarrito()
+}
+
+//Funcion para aumentar cantidad en carrito
+let sumar = (idProducto) =>{
+  let item = carrito.findIndex((product) => product.id === idProducto)
+  carrito[item].cantidad = carrito[item].cantidad + 1
+  llenarCarrito()
+}
+//Funcion para restar cantidad en carrito
+let restar = (idProducto) =>{
+  let item = carrito.findIndex((product) => product.id === idProducto)
+  carrito[item].cantidad = carrito[item].cantidad - 1
+  llenarCarrito()
+}
 
 
+
+
+
+//Esto lo pienso usar para despues ingresar mas items
 function ingresoDestacados(){
     class Destacados{
         constructor(id,nombre,bodega,variedad,año,precio,cantidad,img){

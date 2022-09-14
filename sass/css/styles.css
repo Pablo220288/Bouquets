@@ -70,6 +70,26 @@ html {
   font-size: 1.2rem;
   vertical-align: middle;
 }
+.nav .navContainer .menu a .cant-carrito-total {
+  opacity: 0;
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50% 50%;
+  background-color: #ae3200;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .navContainer .menu a .cant-carrito-total p {
+  font-size: 0.8rem;
+}
+.nav .navContainer .menu a .cant-carrito-total-show {
+  opacity: 1;
+}
 .nav .navContainer .menu .active span {
   width: 100%;
 }
@@ -499,6 +519,7 @@ main .main_container .wabe img {
 }
 main .productosDestacados {
   background-color: #fff;
+  margin-bottom: 30px;
 }
 main .productosDestacados h3 {
   font-size: 3rem;
@@ -567,8 +588,24 @@ main .productosDestacados .destacados .vinos .button-shop-destacados {
   align-items: center;
 }
 main .productosDestacados .destacados .vinos .button-shop-destacados .icono-shop-destacados {
-  font-size: 1.5rem;
+  position: relative;
+  font-size: 2rem;
+  overflow: visible;
   transition: all 300ms ease-out;
+}
+main .productosDestacados .destacados .vinos .button-shop-destacados .cant-shop {
+  opacity: 0;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50% 50%;
+  background-color: #ae3200;
+  color: #ffffff;
+}
+main .productosDestacados .destacados .vinos .button-shop-destacados .cant-shop-active {
+  opacity: 1;
 }
 main .productosDestacados .destacados .vinos .button-shop-destacados:hover {
   transform: scale(1.1);
@@ -622,7 +659,68 @@ main .productosDestacados .destacados .slaid .variedad {
 main .productosDestacados .destacados .slaid .bodega {
   font-size: 1.4rem;
 }
-
+main .contact-conten {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #740000;
+  width: 100%;
+  height: 350px;
+  position: relative;
+  z-index: 0;
+}
+main .contact-conten .form-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+main .contact-conten .form-contact .contact-nombre, main .contact-conten .form-contact .contact-text, main .contact-conten .form-contact .contact-email {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+main .contact-conten .form-contact .contact-nombre .contact-nombre-input, main .contact-conten .form-contact .contact-text .contact-nombre-input, main .contact-conten .form-contact .contact-text .contact-text-textarea, main .contact-conten .form-contact .contact-email .contact-nombre-input, main .contact-conten .form-contact .contact-email .contact-email-input {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background-color: transparent;
+  outline: none;
+  padding: 5px;
+}
+main .contact-conten .form-contact .contact-nombre .contact-nombre-label, main .contact-conten .form-contact .contact-text .contact-nombre-label, main .contact-conten .form-contact .contact-text .contact-text-label, main .contact-conten .form-contact .contact-email .contact-nombre-label, main .contact-conten .form-contact .contact-email .contact-email-label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: all 300ms ease;
+}
+main .contact-conten .form-contact .contact-nombre .contact-label-up, main .contact-conten .form-contact .contact-text .contact-label-up, main .contact-conten .form-contact .contact-email .contact-label-up {
+  transition: all 300ms ease;
+  top: -10px;
+  left: 0;
+  font-size: 0.7rem;
+}
+main .contact-conten .form-contact .contact-email .email-ok {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 100px;
+  background-color: #000;
+}
+main .contact-conten .form-contact .contact-text .contact-text-textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 100px;
+}
 footer {
   position: absolute;
   width: 100%;

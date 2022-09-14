@@ -103,6 +103,7 @@ main{
     }
     .productosDestacados{
         background-color: #fff;
+        margin-bottom: 30px;
         h3{
             font-size: 3rem;
             font-family: Logo;
@@ -167,8 +168,24 @@ main{
                     justify-content: center;
                     align-items: center;
                     .icono-shop-destacados{
-                        font-size: 1.5rem;
+                        position: relative;
+                        font-size: 2rem;
+                        overflow: visible;
                         transition: all 300ms ease-out;
+                    }
+                    .cant-shop{
+                        opacity: 0;
+                        position: absolute;
+                        top: -3px;
+                        right: -3px;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50% 50%;
+                        background-color: $colorRed;
+                        color: #ffffff;
+                    }
+                    .cant-shop-active{
+                        opacity: 1;
                     }
                     &:hover{
                         transform: scale(1.1);
@@ -224,6 +241,83 @@ main{
                     font-size: 1.4rem;
                 }
 
+            }
+        }
+    }
+    .contact-conten{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: #740000;
+        width: 100%;
+        height: 350px;
+        position: relative;
+        z-index: 0;
+        .form-contact{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            .contact-nombre{
+                position: relative;
+                width: 90%;
+                max-width: 400px;
+                margin: auto;
+                .contact-nombre-input{
+                    width: 100%;
+                    position: relative;
+                    z-index: 1;
+                    border: none;
+                    border-bottom: 1px solid #000000;
+                    background-color: transparent;
+                    outline: none;
+                    padding: 5px;
+                }
+                .contact-nombre-label{
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    transform: translateY(-50%);
+                    transition: all 300ms ease;
+                }
+                .contact-label-up{
+                    transition: all 300ms ease;
+                    top: -10px;
+                    left: 0;
+                    font-size: 0.7rem;
+                }
+            }
+            .contact-email{
+                @extend .contact-nombre;
+                .email-ok{
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    width: 100px;
+                    background-color: #000
+                }
+                .contact-email-input{
+                    @extend .contact-nombre-input;
+                }
+                .contact-email-label{
+                    @extend .contact-nombre-label;
+                }
+            }
+            .contact-text{
+                @extend .contact-nombre;
+                .contact-text-textarea{
+                    @extend .contact-nombre-input;
+                    resize:vertical;
+                    min-height: 50px;
+                    max-height: 100px;
+                }.contact-text-label{
+                    @extend .contact-nombre-label;
+                }
             }
         }
     }

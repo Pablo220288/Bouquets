@@ -1,11 +1,13 @@
-//Stock de Productos
-let productosDestacados = [
-  {id:1, nombre:"BENMARCO MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2017, precio:1675, cantidad: 1, img:"assets/BENMARCO MALBEC.jpeg"},
-  {id:2, nombre:"GRAN ENEMIGO GUALTALLARY", bodega:"Aleanna",variedad:"Cabernet Franc", año:2019, precio:8500, cantidad: 1, img:"assets/GRAN ENEMIGO GUALTALLARY.jpeg"},
-  {id:3, nombre:"NOSOTROS MALBEC", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2019, precio:17000, cantidad: 1, img:"assets/NOSOTROS MALBEC.jpeg"},
-  {id:4, nombre:"NICOLA CATENA BONARDA", bodega:"Catena Zapata",variedad:"Bonarda", año:2020, precio:11500, cantidad: 1, img:"assets/NICOLA CATENA BONARDA.jpeg"}
+//Array Carrito
+let carrito = [];
 
-];
+//Esperamos a que se Cargue el DOM y si Existe LocalStorage lo cargamos
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('carrito')){
+      carrito = JSON.parse(localStorage.getItem('carrito'))
+      llenarCarrito()
+      }
+});
 
 //Incorporamos elementos del Stock al DOM
 let destacados = document.getElementById('destacados');
@@ -17,12 +19,12 @@ productosDestacados.forEach((producto) => {
   <div class="price">
     <p class="precio">$${producto.precio}</p>
   </div>
-  <button class="button-shop-destacados" id="agregar${producto.id}"><ion-icon class="icono-shop-destacados" name="cart-outline"></ion-icon></button> 
+  <button class="button-shop-destacados" id="agregar${producto.id}"><ion-icon class="icono-shop-destacados" name="cart-outline"></ion-icon><span id="cant-shop${producto.id}" class="cant-shop"></span></button> 
   <img class="vino_img" id="vino4" src="${producto.img}" alt="${producto.nombre}">
   <p class="variedad_xs">${producto.variedad}</p>
-  <p class="nombre_xs">${producto.nombre}C</p>
+  <p class="nombre_xs">${producto.nombre}</p>
   <div class="slaid">
-      <p class="nombre">${producto.nombre}C</p>
+      <p class="nombre">${producto.nombre}</p>
       <p class="variedad">${producto.variedad}</p>
       <p class="bodega">${producto.bodega}</p>
   </div>`
@@ -31,10 +33,8 @@ productosDestacados.forEach((producto) => {
   //Boton para agregar al carrito
   let button = document.getElementById(`agregar${producto.id}`)
   button.addEventListener('click', () => agregarCarrito(producto.id))
-
+  button.addEventListener('click', () => cantShopCarrito(producto.id))
 });
-
-let carrito = [];
 
 //Funcion para agragar elementos al carrito
 let agregarCarrito = (idProducto) => {
@@ -50,9 +50,30 @@ let agregarCarrito = (idProducto) => {
   llenarCarrito()
 };
 
-let contenCarrito = document.getElementById('conten-carrito');
+//Agregamos Etiqueta al Boton 
+let cantShopCarrito = (idProducto) =>{
+  console.log(idProducto);
+  let cant = document.getElementById(`cant-shop${idProducto}`)
+  let item = carrito.findIndex((product) => product.id === idProducto)
+
+  if(item < 0){
+    cant.classList.remove('cant-shop-active')
+  }else{
+    let itemCantidad = carrito[item].cantidad
+
+    cant.innerHTML = ''
+  
+    const cantTxt = document.createElement('div')
+    cantTxt.innerHTML = `<p>x${itemCantidad}</p>`
+    cant.appendChild(cantTxt)
+  
+    cant.classList.add('cant-shop-active')
+  }
+}
 
 //LLenamos el carrito (DOM) con los elementos seleccionados
+let contenCarrito = document.getElementById('conten-carrito');
+
 const llenarCarrito = () =>{
   contenCarrito.innerHTML = ""
   carrito.forEach((producto) => {
@@ -91,12 +112,16 @@ const llenarCarrito = () =>{
     let carritoTotal = carrito.reduce((acum,item) => acum + item.precio * item.cantidad,0)
     const totalCarrito = document.getElementById('total_carrito')
     totalCarrito.innerHTML = `$${carritoTotal}`
+
+    //guardamos en Local Storage el Carrito
+    localStorage.setItem('carrito',JSON.stringify(carrito))
 };
 
 //Funcion para eliminar Items del carrito
 let eliminarDelCarrito = (idProducto) => {
   carrito.splice(carrito.findIndex((product) => product.id === idProducto),1)
   llenarCarrito()
+  cantShopCarrito(idProducto)
 };
 
 //Funcion para vaciar el carrito  
@@ -113,17 +138,15 @@ let sumar = (idProducto) =>{
   let item = carrito.findIndex((product) => product.id === idProducto)
   carrito[item].cantidad = carrito[item].cantidad + 1
   llenarCarrito()
+  cantShopCarrito(idProducto)
 }
 //Funcion para restar cantidad en carrito
 let restar = (idProducto) =>{
   let item = carrito.findIndex((product) => product.id === idProducto)
   carrito[item].cantidad = carrito[item].cantidad - 1
   llenarCarrito()
+  cantShopCarrito(idProducto)
 }
-
-
-
-
 
 //Esto lo pienso usar para despues ingresar mas items
 function ingresoDestacados(){

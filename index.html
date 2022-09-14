@@ -22,7 +22,7 @@
                     <a href="#"><span></span>Blog</a>
                     <a href="#productosDestacados"><span></span>Productos</a>
                     <a href="#"><span></span>Contacto</a>
-                    <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon></a>
+                    <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><span id="cant-carrito-total" class="cant-carrito-total"></span></a>
                 </div>
                 <div class="burger">
                     <a href="#" id="carrito_xs"><ion-icon name="cart-outline"></ion-icon></a>
@@ -90,6 +90,24 @@
             <h3>Productos Destacados</h3>
             <div class="destacados" id="destacados"></div>
         </div>
+        <div class="contact-conten">
+            <h3>Contacto</h3>
+            <form action="" class="form-contact">
+                <div class="contact-nombre">
+                    <input class="contact-nombre-input" type="text" id="nombreInput">
+                    <label class="contact-nombre-label" id="nombreLabel">Nombre</label>
+                </div>
+                <div class="contact-email" id="contact-email">
+                    <input class="contact-email-input" type="email" id="emailInput">
+                    <label class="contact-email-label" id="emailLabel">Email</label>
+                </div>
+                <div class="contact-text">
+                    <textarea class="contact-text-textarea" id="textarea" ></textarea>
+                    <label class="contact-text-label" id="textareaLabel">Mensaje</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </main>
 
     <footer>
@@ -101,7 +119,8 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
     <!--JavaScript-->
-    <script src="js/destacados.js"></script>
+    <script src="js/stock.js"></script>
+    <script src="js/carrito.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

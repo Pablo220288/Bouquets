@@ -46,9 +46,9 @@ nombreInput.addEventListener('focusout', () =>{
 })
 
 // Evento Formulario Campo Email
-let emailConten = document.getElementById('contact-email');
 let emailInput = document.getElementById('emailInput');
 let emailLabel = document.getElementById('emailLabel');
+let emailCheck = document.getElementById('chackEmail');
 
 if(emailInput.value.length != 0){
     emailLabel.classList.add('contact-label-up')
@@ -56,14 +56,19 @@ if(emailInput.value.length != 0){
 
 emailInput.addEventListener('focus', () =>{
     emailLabel.classList.add('contact-label-up')
+    emailInput.classList.remove('shake-horizontal')
 })
 emailInput.addEventListener('focusout', () =>{
     if(emailInput.value.length === 0){
         emailLabel.classList.remove('contact-label-up')
+        emailCheck.classList.remove('chackEmailShow')
     }else if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(emailInput.value)){
-        alert("La dirección de email " + emailInput.value + " es correcta.");
+        emailCheck.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`
+        emailCheck.classList.add('chackEmailShow')
        } else {
-        alert("La dirección de email es incorrecta.");
+        emailCheck.innerHTML = `<ion-icon name="close-outline"></ion-icon>`
+        emailCheck.classList.add('chackEmailShow')
+        emailInput.classList.add('shake-horizontal')
        }
 })
 
@@ -82,4 +87,13 @@ textarea.addEventListener('focusout', () =>{
     if(textarea.value.length === 0){
         textareaLabel.classList.remove('contact-label-up')
     }
+})
+
+// Evento Formulario Botoon Enviar
+let formulario = document.getElementById('formulario');
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let inputs = e.target.children;
+
+    console.log(inputs[1].value);
 })

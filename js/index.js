@@ -50,6 +50,9 @@ let emailInput = document.getElementById('emailInput');
 let emailLabel = document.getElementById('emailLabel');
 let emailCheck = document.getElementById('chackEmail');
 
+let regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+
+
 if(emailInput.value.length != 0){
     emailLabel.classList.add('contact-label-up')
 }
@@ -62,7 +65,7 @@ emailInput.addEventListener('focusout', () =>{
     if(emailInput.value.length === 0){
         emailLabel.classList.remove('contact-label-up')
         emailCheck.classList.remove('chackEmailShow')
-    }else if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(emailInput.value)){
+    }else if (regexEmail.test(emailInput.value)){
         emailCheck.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`
         emailCheck.classList.add('chackEmailShow')
        } else {
@@ -90,10 +93,38 @@ textarea.addEventListener('focusout', () =>{
 })
 
 // Evento Formulario Botoon Enviar
-let formulario = document.getElementById('formulario');
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let inputs = e.target.children;
+let formulario = document.getElementById("formulario");
 
-    console.log(inputs[1].value);
-})
+let mensajeNombre = document.getElementById("contact-nombre-mensaje");
+mensajeNombre.addEventListener('animationend', () => {
+    mensajeNombre.classList.remove('show')
+});
+let mensajeEmail = document.getElementById("contact-email-mensaje");
+mensajeEmail.addEventListener('animationend', () => {
+    mensajeEmail.classList.remove('show')
+});
+let mensajeText = document.getElementById("contact-text-mensaje");
+mensajeText.addEventListener('animationend', () => {
+    mensajeText.classList.remove('show')
+});
+let mensajeEnviado = document.getElementById("contact-enviado-mensaje");
+mensajeEnviado.addEventListener('animationend', () => {
+    mensajeEnviado.classList.remove('show')
+});
+
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let item = e.target.children;
+
+  if(item[0].firstElementChild.value === ''){
+    mensajeNombre.classList.add('show');
+  }else if(item[1].firstElementChild.value === ''){
+    mensajeEmail.classList.add('show');
+  }else if(item[2].firstElementChild.value === ''){
+    mensajeText.classList.add('show');
+  }else{
+    formulario.reset();
+    emailCheck.classList.remove('chackEmailShow');
+    mensajeEnviado.classList.add('show');  
+  };
+});

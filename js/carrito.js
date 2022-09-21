@@ -4,8 +4,9 @@ let carrito = [];
 //Esperamos a que se Cargue el DOM y si Existe LocalStorage lo cargamos
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('carrito')){
-      carrito = JSON.parse(localStorage.getItem('carrito'))
-      llenarCarrito()
+      carrito = JSON.parse(localStorage.getItem('carrito'));
+      llenarCarrito();
+      incrementarCarrito();
       }
 });
 
@@ -13,8 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
 let destacados = document.getElementById('destacados');
 
 productosDestacados.forEach((producto) => {
-  let div = document.createElement('div')
-  div.classList.add('vinos')
+  let div = document.createElement('div');
+  div.classList.add('vinos');
   div.innerHTML = `
   <div class="price">
     <p class="precio">$${producto.precio}</p>
@@ -27,48 +28,56 @@ productosDestacados.forEach((producto) => {
       <p class="nombre">${producto.nombre}</p>
       <p class="variedad">${producto.variedad}</p>
       <p class="bodega">${producto.bodega}</p>
-  </div>`
-  destacados.appendChild(div)
+  </div>`;
+  destacados.appendChild(div);
 
   //Boton para agregar al carrito
-  let button = document.getElementById(`agregar${producto.id}`)
-  button.addEventListener('click', () => agregarCarrito(producto.id))
-  button.addEventListener('click', () => cantShopCarrito(producto.id))
+  let button = document.getElementById(`agregar${producto.id}`);
+  button.addEventListener('click', () => agregarCarrito(producto.id));
+  button.addEventListener('click', () => cantShopCarrito(producto.id));
 });
 
 //Funcion para agragar elementos al carrito
 let agregarCarrito = (idProducto) => {
   //Si el producto ya esta le sumo 1 a la Cantidad
   if(carrito.some((item) => item.id === idProducto)){
-    let item = carrito.findIndex((product) => product.id === idProducto)
-    carrito[item].cantidad = carrito[item].cantidad + 1
-    llenarCarrito()
+    let item = carrito.findIndex((product) => product.id === idProducto);
+    carrito[item].cantidad ++;
+    llenarCarrito();
   }else{
-    let item = productosDestacados.find((product) => product.id === idProducto)
-    carrito.push(item)
+    let item = productosDestacados.find((product) => product.id === idProducto);
+    carrito.push(item);
   }
-  llenarCarrito()
+  llenarCarrito();
 };
 
 //Agregamos Etiqueta al Boton 
 let cantShopCarrito = (idProducto) =>{
-  console.log(idProducto);
   let cant = document.getElementById(`cant-shop${idProducto}`)
   let item = carrito.findIndex((product) => product.id === idProducto)
-
+  console.log(item);
   if(item < 0){
     cant.classList.remove('cant-shop-active')
   }else{
     let itemCantidad = carrito[item].cantidad
-
     cant.innerHTML = ''
-  
-    const cantTxt = document.createElement('div')
-    cantTxt.innerHTML = `<p>x${itemCantidad}</p>`
-    cant.appendChild(cantTxt)
-  
+    cant.innerHTML = `<p>x${itemCantidad}</p>`
     cant.classList.add('cant-shop-active')
   }
+}
+
+//Total de Cantidad en Carrito
+let cantTotalCarrito = 0;
+let cantCarritoTotal = document.getElementById('cant-carrito-total')
+
+let incrementarCarrito = () => {
+
+  carrito.length === 0 ? cantCarritoTotal.classList.remove('cant-carrito-total-show') : 
+  cantCarritoTotal.classList.add('cant-carrito-total-show');
+
+  cantTotalCarrito = carrito.reduce((acum,item) => acum + item.cantidad,0)
+  cantCarritoTotal.innerHTML = ""
+  cantCarritoTotal.innerHTML = `<p>${cantTotalCarrito}</p>`
 }
 
 //LLenamos el carrito (DOM) con los elementos seleccionados
@@ -113,8 +122,12 @@ const llenarCarrito = () =>{
     const totalCarrito = document.getElementById('total_carrito')
     totalCarrito.innerHTML = `$${carritoTotal}`
 
-    //guardamos en Local Storage el Carrito
+    //Guardamos en Local Storage el Carrito
     localStorage.setItem('carrito',JSON.stringify(carrito))
+
+    //Incrementamos el Total del el Carrito
+    incrementarCarrito();
+ 
 };
 
 //Funcion para eliminar Items del carrito
@@ -122,6 +135,7 @@ let eliminarDelCarrito = (idProducto) => {
   carrito.splice(carrito.findIndex((product) => product.id === idProducto),1)
   llenarCarrito()
   cantShopCarrito(idProducto)
+  incrementarCarrito();
 };
 
 //Funcion para vaciar el carrito  
@@ -131,22 +145,28 @@ vaciarCarrito.addEventListener('click', eliminarTodoElCarrito)
 function eliminarTodoElCarrito(){
   carrito.splice(0,carrito.length)
   llenarCarrito()
+  incrementarCarrito();
 }
 
 //Funcion para aumentar cantidad en carrito
 let sumar = (idProducto) =>{
-  let item = carrito.findIndex((product) => product.id === idProducto)
-  carrito[item].cantidad = carrito[item].cantidad + 1
-  llenarCarrito()
-  cantShopCarrito(idProducto)
-}
+  let item = carrito.findIndex((product) => product.id === idProducto);
+  carrito[item].cantidad ++;
+  llenarCarrito();
+  cantShopCarrito(idProducto);
+  incrementarCarrito();
+};
+
 //Funcion para restar cantidad en carrito
 let restar = (idProducto) =>{
-  let item = carrito.findIndex((product) => product.id === idProducto)
-  carrito[item].cantidad = carrito[item].cantidad - 1
-  llenarCarrito()
-  cantShopCarrito(idProducto)
-}
+  let item = carrito.findIndex((product) => product.id === idProducto);
+
+  carrito[item].cantidad === 1 ? eliminarDelCarrito(item) : carrito[item].cantidad --;
+
+  llenarCarrito();
+  cantShopCarrito(idProducto);
+  incrementarCarrito();
+};
 
 //Esto lo pienso usar para despues ingresar mas items
 function ingresoDestacados(){
@@ -166,3 +186,4 @@ function ingresoDestacados(){
         }
     }
 };
+

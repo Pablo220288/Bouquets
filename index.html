@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <title>🍷 Bouquet - Tienda de Vinos </title>
-    <link rel="icon" href="">
+    <title>Bouquet | Tienda de Vinos </title>
+    <link rel="icon" href="assets/vino.png">
 
     <link rel="stylesheet" href="sass/css/styles.css">
 </head>
@@ -21,8 +20,8 @@
                     <a href="#"><span></span>Nosotros</a>
                     <a href="#"><span></span>Blog</a>
                     <a href="#productosDestacados"><span></span>Productos</a>
-                    <a href="#"><span></span>Contacto</a>
-                    <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><span id="cant-carrito-total" class="cant-carrito-total"></span></a>
+                    <a href="#contacto"><span></span>Contacto</a>
+                    <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><div id="cant-carrito-total" class="cant-carrito-total"></div></a>
                 </div>
                 <div class="burger">
                     <a href="#" id="carrito_xs"><ion-icon name="cart-outline"></ion-icon></a>
@@ -40,16 +39,17 @@
                 <a href="#"><p>Nosotros</p></a>
                 <a href="#"><p>Blog</p></a>
                 <a href="#"><p>Productos</p></a>
-                <a href="#"><p>Contacto</p></a>
+                <a href="#contacto"><p>Contacto</p></a>
             </div>
         </nav>
         <div class="modal-carrito" id="modal-carrito">
             <div class="modal-container">
                 <h3 class="modal-title">Bodega</h3>
                 <ion-icon class="close-carrito" id="close-carrito" name="close-outline"></ion-icon>
-                <div id="conten-carrito">
-
-                </div>
+              
+                <!--Contenedor del Carrito-->
+                <div id="conten-carrito"></div>
+                
                 <div class="total-carrito">
                     <p class="total-text">Total Carrito:</p>
                     <p id="total_carrito">$</p>
@@ -67,6 +67,7 @@
             </div>
         </div>
     </header>
+
     <main>
         <div class="main_container" id="home">
             <section class="fondo_home">
@@ -86,35 +87,49 @@
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
         </div>
+        <!--Contenedor de Productos Destacados-->
         <div class="productosDestacados" id="productosDestacados">
             <h3>Productos Destacados</h3>
             <div class="destacados" id="destacados"></div>
         </div>
-        <div class="contact-conten">
+        <div class="contact-conten" id="contacto">
+            <div class="wabeContact">
+                <img src="assets/wabe.png" alt="Wabe">
+            </div>
             <h3>Contacto</h3>
             <form id="formulario" class="form-contact">
                 <div class="contact-nombre">
                     <input class="contact-nombre-input" type="text" id="nombreInput">
                     <label class="contact-nombre-label" id="nombreLabel">Nombre</label>
+                    <p class="contact-nombre-mensaje" id="contact-nombre-mensaje">Compartinos tu Nombre</p>
                 </div>
                 <div class="contact-email" id="contact-email">
                     <input class="contact-email-input" type="email" id="emailInput">
                     <label class="contact-email-label" id="emailLabel">Email</label>
                     <div id="chackEmail" class="chackEmail"><ion-icon name="checkmark-outline"></ion-icon></div>
+                    <p class="contact-email-mensaje" id="contact-email-mensaje">Compartinos tu Email</p>
                 </div>
                 <div class="contact-text">
                     <textarea class="contact-text-textarea" id="textarea" ></textarea>
                     <label class="contact-text-label" id="textareaLabel">Mensaje</label>
+                    <p class="contact-text-mensaje" id="contact-text-mensaje">Dejanos un Comentario</p>
                 </div>
+                <p class="contact-enviado-mensaje" id="contact-enviado-mensaje">Mensaje enviado. Gracias..!!</p>
                 <button class="buttonContacto" type="submit">
                     <span></span><span></span><span></span><span></span>
-                    Enviar</button>
+                    Enviar
+                </button>
             </form>
         </div>
     </main>
 
     <footer>
-        <span class="copyright">&copy;2022. - <strong>Pablo Hernandez </strong></span>
+        <div class="footer">
+            <hr class="line">
+            <div class="copy">
+                <span class="footerCopy">&copy;2022 - Buquets</span>
+                <span class="footerDisen"><a href="https://pablo220288.github.io/Portafolio_2022/" class="pablo" target="_blank">Pablo Hernandez</a></span>
+          </div>
     </footer>
 
     <!--Ionicons-->

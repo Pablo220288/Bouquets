@@ -4,6 +4,10 @@
   font-family: Logo;
   src: url("../../font/BlackZone-lgGze.otf") format("truetype");
 }
+@font-face {
+  font-family: Pablo;
+  src: url("../../font/TheScientist-L3EyW.ttf") format("truetype");
+}
 * {
   margin: 0;
   padding: 0;
@@ -75,8 +79,8 @@ html {
   position: absolute;
   top: -5px;
   left: 10px;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   border-radius: 50% 50%;
   background-color: #ae3200;
   color: #ffffff;
@@ -662,15 +666,32 @@ main .productosDestacados .destacados .slaid .bodega {
 main .contact-conten {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
   justify-content: center;
   align-items: center;
   background-color: #a80000;
   width: 100%;
-  height: 350px;
+  height: 460px;
   position: relative;
   z-index: 0;
-  padding-bottom: 50px;
+  padding: 50px 0px;
+}
+main .contact-conten .wabeContact {
+  position: absolute;
+  width: 100%;
+  top: -20px;
+  left: 0;
+  transform: rotate(180deg);
+}
+main .contact-conten .wabeContact img {
+  width: 100%;
+  height: 100px;
+}
+main .contact-conten h3 {
+  font-size: 3rem;
+  font-family: Logo;
+  font-weight: 500;
+  text-align: center;
 }
 main .contact-conten .form-contact {
   position: relative;
@@ -709,6 +730,20 @@ main .contact-conten .form-contact .contact-nombre .contact-label-up, main .cont
   left: 0;
   font-size: 0.7rem;
 }
+main .contact-conten .form-contact .contact-nombre .contact-nombre-mensaje, main .contact-conten .form-contact .contact-text .contact-nombre-mensaje, main .contact-conten .form-contact .contact-text .contact-text-mensaje, main .contact-conten .form-contact .contact-email .contact-nombre-mensaje, main .contact-conten .form-contact .contact-email .contact-email-mensaje {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  width: 80%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5215686275);
+  color: #ffffff;
+  border-radius: 6px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
+  opacity: 0;
+}
 main .contact-conten .form-contact .contact-email .email-ok {
   position: absolute;
   z-index: 2;
@@ -737,10 +772,24 @@ main .contact-conten .form-contact .contact-text .contact-text-textarea {
   min-height: 50px;
   max-height: 100px;
 }
+main .contact-conten .form-contact .contact-enviado-mensaje {
+  position: absolute;
+  bottom: -95px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  width: 80%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5215686275);
+  color: #ffffff;
+  border-radius: 6px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
+  opacity: 0;
+}
 main .contact-conten .form-contact .buttonContacto {
   position: absolute;
   background-color: transparent;
-  bottom: -60px;
+  bottom: -70px;
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
@@ -797,19 +846,37 @@ main .contact-conten .form-contact .buttonContacto:hover span:nth-child(4) {
 main .contact-conten .form-contact .buttonContacto:hover {
   font-size: 1.1rem;
 }
+main .contact-conten .form-contact .show {
+  animation: showMensaje 5s;
+}
 
-footer {
-  position: absolute;
+.footer {
   width: 100%;
   text-align: right;
-  bottom: 7px;
-  left: 48%;
-  transform: translate(-52%, 0%);
+  background-color: #a80000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-footer .copyright {
-  font-size: 10px;
-  font-weight: 600;
-  color: #ffffff;
+.footer .line {
+  width: 90%;
+  border: 1px solid #000000;
+}
+.footer .copy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  padding: 10px 0px;
+  color: #000000;
+}
+.footer .copy .footerDisen a {
+  font-size: 1.5rem;
+  font-family: Pablo;
+  text-decoration: none;
+  color: inherit;
 }
 
 @keyframes slide {
@@ -862,6 +929,17 @@ footer .copyright {
   90% {
     -webkit-transform: translateX(-8px);
     transform: translateX(-8px);
+  }
+}
+@keyframes showMensaje {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @media (min-width: 1000px) {

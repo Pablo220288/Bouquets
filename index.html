@@ -8,9 +8,15 @@
     <title>Bouquet | Tienda de Vinos </title>
     <link rel="icon" href="assets/vino.png">
 
+    <!--Libreria-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <!--CSS-->
     <link rel="stylesheet" href="sass/css/styles.css">
 </head>
 <body>
+    <div class="lds-ring loader" id="loader"><div></div><div></div><div></div><div></div></div>
     <header>
         <nav class="nav">
             <div class="navContainer">
@@ -24,7 +30,7 @@
                     <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><div id="cant-carrito-total" class="cant-carrito-total"></div></a>
                 </div>
                 <div class="burger">
-                    <a href="#" id="carrito_xs"><ion-icon name="cart-outline"></ion-icon></a>
+                    <a href="#" id="carrito_xs"><ion-icon name="cart-outline"></ion-icon><div id="cant-carrito-total-xs" class="cant-carrito-total-xs"></div></a>
                     <button class="hamburger">
                         <span></span>
                         <span></span>
@@ -46,10 +52,8 @@
             <div class="modal-container">
                 <h3 class="modal-title">Bodega</h3>
                 <ion-icon class="close-carrito" id="close-carrito" name="close-outline"></ion-icon>
-              
                 <!--Contenedor del Carrito-->
                 <div id="conten-carrito"></div>
-                
                 <div class="total-carrito">
                     <p class="total-text">Total Carrito:</p>
                     <p id="total_carrito">$</p>
@@ -87,11 +91,22 @@
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
         </div>
-        <!--Contenedor de Productos Destacados-->
+
         <div class="productosDestacados" id="productosDestacados">
             <h3>Productos Destacados</h3>
-            <div class="destacados" id="destacados"></div>
+            <div class="carrusel">
+                <button aria-label="Previous" class="carrusel-anterior">
+                    <ion-icon class="carrusel-arrow" name="chevron-back-outline"></ion-icon>
+                </button>
+                <!--Contenedor de Productos Destacados-->
+                <div class="destacados" id="destacados"></div>
+                <button aria-label="Next" class="carrusel-siguiente">
+                    <ion-icon class="carrusel-arrow" name="chevron-forward-outline"></ion-icon>
+                </button>
+            </div>
+            <div role="tablist" class="dots"></div>
         </div>
+
         <div class="contact-conten" id="contacto">
             <div class="wabeContact">
                 <img src="assets/wabe.png" alt="Wabe">
@@ -135,6 +150,11 @@
     <!--Ionicons-->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <!--Librerias-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     
     <!--JavaScript-->
     <script src="js/stock.js"></script>

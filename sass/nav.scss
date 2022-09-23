@@ -78,8 +78,29 @@
             align-items: center;
             gap: 10px;
             a{
+                position: relative;
                 color: #fff;
                 font-size: 1.5rem;
+                .cant-carrito-total-xs{
+                    opacity: 0;
+                    position: absolute;
+                    top: -2px;
+                    left: 10px;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50% 50%;
+                    background-color: $colorRed;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                .cant-carrito-total-show{
+                    opacity: 1;
+                }
             }
             .hamburger{
                 display: block;
@@ -260,14 +281,17 @@
         #conten-carrito{
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
             margin-bottom: 15px;
+            height: 240px;
+            overflow: scroll;
             .item-carrito{
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                padding-right: 15px;
                 .vino_img_carrito{
                     width: 80px;
                 }
@@ -329,7 +353,6 @@
                 font-weight: 700;
             }
         }
-        
         .buttons-carrito{
             display: flex;
             justify-content: space-evenly;

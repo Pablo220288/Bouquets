@@ -4,7 +4,8 @@
     left: 0;
     right: 0;
     z-index: 99;
-    background-color: rgba(0, 0, 0, 0.555);
+    background: rgba(0, 0, 0, 0.555);
+    transition: 0.5s ease-in-out;
     .navContainer{
         max-width: 100%;
         margin: 0 auto;
@@ -238,6 +239,11 @@
         top: 0;
     }
 }
+.nav-scroll{
+    top: 0;
+    background: #000000dd;
+    transition: 0.5s ease-in-out;
+}
 .modal-carrito{
     opacity: 0;
     pointer-events: none;
@@ -396,16 +402,12 @@
     }
 }
 .modal_show{
-opacity: 1;
-pointer-events: unset;
-transition: opacity .6s;
---transform: traslateY(0);
---transition: transform .8s .8s;
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: traslateY(0);
+    --transition: transform .8s .8s;
 }
-
-
-
-
 @media(min-width:768px){
     .nav .navContainer{
         .burger{
@@ -419,7 +421,6 @@ transition: opacity .6s;
         opacity: 0;
     }
 }
-
 @keyframes animate {
     0%{
         width: 0%;

@@ -28,7 +28,34 @@ window.addEventListener('load', () => {
             }}
         ]
     })
-  });
+});
+
+//Nav Scroll
+window.addEventListener('scroll',() => {
+    let nav = document.querySelector('.nav');
+    nav.classList.toggle('nav-scroll',window.scrollY>400)
+})
+
+//Indicador de Seccion
+const menu = document.querySelectorAll('.menu')
+const secciones = document.querySelectorAll('.seccion')
+const seccion = new IntersectionObserver ((items) => {
+items.forEach((entrada) => {
+    if(entrada.isIntersecting){ 
+    let menuActual = Array.from(menu).find(item => 
+        item.dataset.url === entrada.target.id);
+        menuActual.classList.add('active')
+        for (let menuAnterior of menu){
+            menuAnterior != menuActual && menuAnterior.classList.remove('active')
+        }
+    }
+})
+},{
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8
+})
+secciones.forEach(item => seccion.observe(item))
 
 //Menu Hamburguesa
 const hamburger = document.querySelector('.hamburger');
@@ -38,6 +65,7 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('is-active');
     nav_mobile.classList.toggle('is-active');
 });
+
 
 //Modal carrito
 const modalCarrito = document.getElementById('modal-carrito');
@@ -59,22 +87,23 @@ closeCarrito.addEventListener('click',() =>{
     modalCarrito.classList.remove('modal_show');
 });
 
+//Productos Destacados
+let generales = document.getElementById('generales');
+productosGenerales.forEach((producto) => {
+    cargaDomProductoGenerales(producto)
+});
 
 // Evento Formulario Campo Nombre
 let nombreInput = document.getElementById('nombreInput');
 let nombreLabel = document.getElementById('nombreLabel');
 
-if(nombreInput.value.length != 0){
-    nombreLabel.classList.add('contact-label-up');
-}
+nombreInput.value.length != 0 && nombreLabel.classList.add('contact-label-up');
 
 nombreInput.addEventListener('focus', () =>{
     nombreLabel.classList.add('contact-label-up');
 });
 nombreInput.addEventListener('focusout', () =>{
-    if(nombreInput.value.length === 0){
-        nombreLabel.classList.remove('contact-label-up');
-    }
+    nombreInput.value.length === 0 && nombreLabel.classList.remove('contact-label-up');
 });
 
 // Evento Formulario Campo Email
@@ -84,9 +113,7 @@ let emailCheck = document.getElementById('chackEmail');
 
 let regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
-if(emailInput.value.length != 0){
-    emailLabel.classList.add('contact-label-up')
-}
+emailInput.value.length != 0 && emailLabel.classList.add('contact-label-up')
 
 emailInput.addEventListener('focus', () =>{
     emailLabel.classList.add('contact-label-up');
@@ -110,17 +137,13 @@ emailInput.addEventListener('focusout', () =>{
 let textarea = document.getElementById('textarea');
 let textareaLabel = document.getElementById('textareaLabel');
 
-if(textarea.value.length != 0){
-    textareaLabel.classList.add('contact-label-up');
-}
+textarea.value.length != 0 && textareaLabel.classList.add('contact-label-up');
 
 textarea.addEventListener('focus', () =>{
     textareaLabel.classList.add('contact-label-up');
 });
 textarea.addEventListener('focusout', () =>{
-    if(textarea.value.length === 0){
-        textareaLabel.classList.remove('contact-label-up');
-    }
+    textarea.value.length === 0 && textareaLabel.classList.remove('contact-label-up');
 });
 
 // Evento Formulario Botoon Enviar

@@ -14,40 +14,36 @@
                 }
             }
         }
-        .productosDestacados{
+        .productosDestacados, .productosGenerales{
             h3{
                 font-size: 4.5rem;
             }
-            .carrusel{
-                .destacados{
-                    .vino_img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                    .vinos{
-                        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
-                        .nombre_xs{
-                            display: none;
-                        }
-                        .variedad_xs{
-                            display: none;
-                        }
-                        &:hover{
-                            box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-                        }
-                        &:hover .slaid{
-                            top: 0;
-                            opacity: 1;
-                        }
-                        &:hover .vino_img{
-                            transform: scale(1.15);
-                        }
-                    }
-                    .slaid{
-                        display: flex;
-                    }
-                }
-            }
         }
+    }
+    .vino_img{
+        width: 100%;
+        height: 100%;
+    }
+    .vinos{
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -5px;
+        .nombre_xs{
+            display: none;
+        }
+        .variedad_xs{
+            display: none;
+        }
+        &:hover{
+            box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+        }
+        &:hover .slaid{
+            top: 0;
+            opacity: 1;
+        }
+        &:hover .vino_img{
+            transform: scale(1.15);
+        }
+    }
+    .slaid{
+        display: flex;
     }
 }

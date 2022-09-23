@@ -22,11 +22,11 @@
             <div class="navContainer">
                 <div class="logo"><p>B</p></div>
                 <div class="menu">
-                    <a href="#home" class="active"><span></span>Inicio</a>
-                    <a href="#"><span></span>Nosotros</a>
-                    <a href="#"><span></span>Blog</a>
-                    <a href="#productosDestacados"><span></span>Productos</a>
-                    <a href="#contacto"><span></span>Contacto</a>
+                    <a href="#home" data-url="home" class="menu active"><span></span>Inicio</a>
+                    <a href="#" data-url="nosotros" class="menu"><span></span>Nosotros</a>
+                    <a href="#" data-url="blog" class="menu"><span></span>Blog</a>
+                    <a href="#productos" data-url="productos" class="menu"><span></span>Productos</a>
+                    <a href="#contacto" data-url="contacto" class="menu"><span></span>Contacto</a>
                     <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><div id="cant-carrito-total" class="cant-carrito-total"></div></a>
                 </div>
                 <div class="burger">
@@ -73,7 +73,7 @@
     </header>
 
     <main>
-        <div class="main_container" id="home">
+        <div class="main_container seccion" id="home">
             <section class="fondo_home">
                 <div class="capa"></div>
             </section>
@@ -91,8 +91,10 @@
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
         </div>
-
-        <div class="productosDestacados" id="productosDestacados">
+        <div class="seccion" id="nosotros"></div>
+        <div class="seccion" id="blog"></div>
+        <!--Seccion Productos Destacados-->
+        <div class="productosDestacados seccion" id="productos">
             <h3>Productos Destacados</h3>
             <div class="carrusel">
                 <button aria-label="Previous" class="carrusel-anterior">
@@ -106,8 +108,13 @@
             </div>
             <div role="tablist" class="dots"></div>
         </div>
-
-        <div class="contact-conten" id="contacto">
+        <!--Seccion Productos Generales-->
+        <div class="productosGenerales" id="productosGenerales">
+            <h3>Nuestros Vinos</h3>
+            <div class="generales" id="generales"></div>
+        </div>
+        <!--Formulario de Contacto-->
+        <div class="contact-conten seccion" id="contacto">
             <div class="wabeContact">
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
@@ -158,6 +165,7 @@
     
     <!--JavaScript-->
     <script src="js/stock.js"></script>
+    <script src="js/append.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/index.js"></script>
 </body>

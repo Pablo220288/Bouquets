@@ -24,12 +24,6 @@ const cargaEtiqueta = (productoCantidad) =>{
   }
 };
 
-//Incorporamos elementos del Stock al DOM
-let destacados = document.getElementById('destacados');
-productosDestacados.forEach((producto) => {
-  cargaDomProductoDestacados(producto);
-});
-
 //Funcion para agragar elementos al carrito
 let agregarCarrito = (idProducto) => {
   //Si el producto ya existe le sumo 1 a la Cantidad

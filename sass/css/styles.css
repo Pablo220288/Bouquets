@@ -47,6 +47,17 @@ html {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+.lds-ring .loader-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: Logo;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 9px;
+}
 
 @keyframes lds-ring {
   0% {
@@ -82,7 +93,7 @@ html {
   right: 0;
   z-index: 99;
   background: rgba(0, 0, 0, 0.555);
-  transition: 0.5s ease-in-out;
+  transition: 0.5s;
 }
 .nav .navContainer {
   max-width: 100%;
@@ -316,8 +327,8 @@ html {
 
 .nav-scroll {
   top: 0;
-  background: rgba(0, 0, 0, 0.8666666667);
-  transition: 0.5s ease-in-out;
+  background: #000000;
+  box-shadow: 0px 2px 5px #460000;
 }
 
 .modal-carrito {

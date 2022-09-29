@@ -24,6 +24,17 @@
         animation-delay: -0.15s;
       }
     }
+    .loader-text{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-family: Logo;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-top: 9px;
+    }
   }
   @keyframes lds-ring {
     0% {

@@ -5,7 +5,7 @@
     right: 0;
     z-index: 99;
     background: rgba(0, 0, 0, 0.555);
-    transition: 0.5s ease-in-out;
+    transition: 0.5s;
     .navContainer{
         max-width: 100%;
         margin: 0 auto;
@@ -241,8 +241,8 @@
 }
 .nav-scroll{
     top: 0;
-    background: #000000dd;
-    transition: 0.5s ease-in-out;
+    background: #000000;
+    box-shadow: 0px 2px 5px #460000;
 }
 .modal-carrito{
     opacity: 0;

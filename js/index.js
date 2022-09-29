@@ -66,7 +66,6 @@ hamburger.addEventListener('click', () => {
     nav_mobile.classList.toggle('is-active');
 });
 
-
 //Modal carrito
 const modalCarrito = document.getElementById('modal-carrito');
 const openCarrito = document.getElementById('carrito');
@@ -88,10 +87,26 @@ closeCarrito.addEventListener('click',() =>{
 });
 
 //Productos Destacados
+let destacados = document.getElementById('destacados');
+let cargaDestacados = async () => {
+    let respuesta = await fetch("./json/destacados.json")
+    let respuestaData = await respuesta.json()
+    respuestaData.forEach((producto) => {
+        cargaDomProductoDestacados(producto)
+    });
+}
+cargaDestacados()
+
+//Productos Generales
 let generales = document.getElementById('generales');
-productosGenerales.forEach((producto) => {
-    cargaDomProductoGenerales(producto)
-});
+let cargaGenerales = async () => {
+    let respuesta = await fetch("./json/general.json")
+    let respuestaData = await respuesta.json()
+    respuestaData.forEach((producto) => {
+        cargaDomProductoGenerales(producto)
+    });
+}
+cargaGenerales()
 
 // Evento Formulario Campo Nombre
 let nombreInput = document.getElementById('nombreInput');

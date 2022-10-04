@@ -1,19 +1,6 @@
 //Array Carrito
 let carrito = [];
 
-//Esperamos a que se Cargue el DOM y si Existe LocalStorage lo cargamos
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('carrito')){
-      carrito = JSON.parse(localStorage.getItem('carrito'));
-      llenarCarrito();
-      incrementarCarrito();
-      //Vuelvo a Cargar las Etiquetas en los Botones
-      carrito.forEach((producto) => {
-        cargaEtiqueta(producto);
-      });
-    };
-});
-
 //Funcion de Carga de etiquetas en Boton
 const cargaEtiqueta = (productoCantidad) =>{
   let elements = document.getElementsByClassName(`cantidad${productoCantidad.id}`);
@@ -45,7 +32,7 @@ let agregarCarrito = (idProducto) => {
       
     }).showToast();
   }else{
-    let item = productosGenerales.find((product) => product.id === idProducto);
+    let item = prod.find((product) => product.id === idProducto);
     carrito.push(item);
       Toastify({
         text: "Agregado al Carrito",
@@ -120,7 +107,6 @@ const llenarCarrito = () =>{
 
   //Incrementamos el Total del el Carrito
   incrementarCarrito();
- 
 };
 
 //Funcion para eliminar Items del carrito
@@ -137,7 +123,6 @@ vaciarCarrito.addEventListener('click', eliminarTodoElCarrito);
 
 function eliminarTodoElCarrito(){
   //Elimino las etiquetas
-
   carrito.forEach((producto) => {
     let elements = document.getElementsByClassName(`cantidad${producto.id}`);
     for (let i = 0; i < elements.length; i++) {

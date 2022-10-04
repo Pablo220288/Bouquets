@@ -1,10 +1,24 @@
 //Loader
 window.addEventListener('load',() =>{
-document.getElementById('loader').classList.toggle('loader-hide')
+    cargaDom()
+    document.getElementById('loader').classList.toggle('loader-hide')
 });
 
+//Local Storage
+const storage = () => {
+    if (localStorage.getItem('carrito')){
+      carrito = JSON.parse(localStorage.getItem('carrito'));
+      llenarCarrito();
+      incrementarCarrito();
+      //Vuelvo a Cargar las Etiquetas en los Botones
+      carrito.forEach((producto) => {
+        cargaEtiqueta(producto);
+      });
+    };
+};
+
 //Carrusel de Productos Destacados
-window.addEventListener('load', () => {
+const slaider = () => {
     new Glider(document.querySelector('.destacados'), {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -28,13 +42,13 @@ window.addEventListener('load', () => {
             }}
         ]
     })
-});
+};
 
 //Nav Scroll
 window.addEventListener('scroll',() => {
     let nav = document.querySelector('.nav');
     nav.classList.toggle('nav-scroll',window.scrollY>400)
-})
+});
 
 //Indicador de Seccion
 const menu = document.querySelectorAll('.menu')
@@ -86,27 +100,32 @@ closeCarrito.addEventListener('click',() =>{
     modalCarrito.classList.remove('modal_show');
 });
 
-//Productos Destacados
-let destacados = document.getElementById('destacados');
-let cargaDestacados = async () => {
-    let respuesta = await fetch("./json/destacados.json")
-    let respuestaData = await respuesta.json()
-    respuestaData.forEach((producto) => {
-        cargaDomProductoDestacados(producto)
-    });
-}
-cargaDestacados()
+//Fetch para solicitar Productos al JSON y renderizar el DOM
+let prod = [];
 
-//Productos Generales
-let generales = document.getElementById('generales');
-let cargaGenerales = async () => {
-    let respuesta = await fetch("./json/general.json")
-    let respuestaData = await respuesta.json()
+let cargaDom = async () => {
+    let respuesta = await fetch("./json/general.json");
+    let respuestaData = await respuesta.json();
+    respuestaData.forEach((producto) => {
+        prod.push(producto)
+    });
+    //Productos Generales
     respuestaData.forEach((producto) => {
         cargaDomProductoGenerales(producto)
     });
-}
-cargaGenerales()
+    
+    let respuesta2 = await fetch("./json/destacados.json");
+    let respuestaData2 = await respuesta2.json();
+
+    //Productos Destacados
+    respuestaData2.forEach((producto) => {
+        cargaDomProductoDestacados(producto)
+    });
+    //Generamos el Slaider
+    slaider();
+    //Aplicamos Local Storage
+    storage();
+};
 
 // Evento Formulario Campo Nombre
 let nombreInput = document.getElementById('nombreInput');

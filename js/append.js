@@ -1,4 +1,5 @@
 //Funcion de Carga en DOM del Index Destacados
+let destacados = document.getElementById('destacados');
 const cargaDomProductoDestacados = (producto) =>{
     let div = document.createElement('div');
     div.classList.add('vinos');
@@ -26,6 +27,7 @@ const cargaDomProductoDestacados = (producto) =>{
 };
 
 //Funcion de Carga en DOM del Index Generales
+let generales = document.getElementById('generales');
 const cargaDomProductoGenerales = (producto) =>{
   let div = document.createElement('div');
   div.classList.add('vinos');

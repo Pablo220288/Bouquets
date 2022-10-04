@@ -1,0 +1,36 @@
+//Stock de Productos
+let productosDestacados = [
+  {id:3, nombre:"BENMARCO", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2017, precio:1675, cantidad: 1, img:"assets/BENMARCO MALBEC.jpeg"},
+  {id:6, nombre:"GRAN ENEMIGO GUALTALLARY", bodega:"Aleanna",variedad:"Cabernet Franc", año:2019, precio:8500, cantidad: 1, img:"assets/GRAN ENEMIGO GUALTALLARY.jpeg"},
+  {id:8, nombre:"LA ZULEMA", bodega:"Pulenta Estate",variedad:"Malbec", año:2019, precio:950, cantidad: 1, img:"assets/LA ZULEMA MALBEC.jpeg"},
+  {id:9, nombre:"NOSOTROS", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2019, precio:17000, cantidad: 1, img:"assets/NOSOTROS MALBEC.jpeg"},
+  {id:10, nombre:"CRIOS ROSÉ", bodega:"Susana Balbo Wines",variedad:"Rosado", año:2020, precio:11500, cantidad: 1, img:"assets/CRIOS ROSE OF MALBEC.jpeg"},
+  {id:11, nombre:"NICOLA CATENA", bodega:"Catena Zapata",variedad:"Bonarda", año:2020, precio:11500, cantidad: 1, img:"assets/NICOLA CATENA BONARDA.jpeg"},
+  {id:15, nombre:"SUSANA BALBO SIGNATURE", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2021, precio:2250, cantidad: 1, img:"assets/SUSANA BALBO SIGNATURE.jpeg"},
+  {id:18, nombre:"ALTALAND", bodega:"Altaland",variedad:"Cabernet Sauvignon", año:2022, precio:1600, cantidad: 1, img:"assets/ALTALAND CABERNET SAUVIGNON.jpeg"},
+  {id:19, nombre:"BRAMARE LUJÁN DE CUYO", bodega:"Viña de Cobos",variedad:"Cabernet Sauvignon", año:2021, precio:7500, cantidad: 1, img:"assets/BRAMARE LUJÁN DE CUYO.jpeg"},
+];
+
+let productosGenerales = [
+    {id:1, nombre:"SAINT FELICIEN", bodega:"Catena Zapata",variedad:"Malbec", año:2020, precio:1950, cantidad: 1, img:"assets/SAINT FELICIEN MALBEC.jpeg"},
+    {id:2, nombre:"SAINT FELICIEN", bodega:"Catena Zapata",variedad:"Cabernet Sauvignon", año:2020, precio:1950, cantidad: 1, img:"assets/SAINT FELICIEN CABERNET SAUVIGNON.jpeg"},
+    {id:3, nombre:"BENMARCO", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2017, precio:1675, cantidad: 1, img:"assets/BENMARCO MALBEC.jpeg"},
+    {id:4, nombre:"NICASIA RED BLEND", bodega:"Catena Zapata",variedad:"Malbec", año:2021, precio:1525, cantidad: 1, img:"assets/NICASIA RED BLEND.jpeg"},
+    {id:5, nombre:"SIGNATURE ROSÉ", bodega:"Susana Balbo Wines",variedad:"Rosado", año:2020, precio:3500, cantidad: 1, img:"assets/SUSANA BALBO SIGNATURE ROSÉ.jpeg"},
+    {id:6, nombre:"GRAN ENEMIGO GUALTALLARY", bodega:"Aleanna",variedad:"Cabernet Franc", año:2019, precio:8500, cantidad: 1, img:"assets/GRAN ENEMIGO GUALTALLARY.jpeg"},
+    {id:7, nombre:"PULENTA ESTATE", bodega:"Pulenta Estate",variedad:"Malbec", año:2019, precio:3500, cantidad: 1, img:"assets/PULENTA ESTATE MALBEC.jpeg"},
+    {id:8, nombre:"LA ZULEMA", bodega:"Pulenta Estate",variedad:"Malbec", año:2019, precio:950, cantidad: 1, img:"assets/LA ZULEMA MALBEC.jpeg"},
+    {id:9, nombre:"NOSOTROS", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2019, precio:17000, cantidad: 1, img:"assets/NOSOTROS MALBEC.jpeg"},
+    {id:10, nombre:"CRIOS ROSÉ", bodega:"Susana Balbo Wines",variedad:"Rosado", año:2020, precio:11500, cantidad: 1, img:"assets/CRIOS ROSE OF MALBEC.jpeg"},
+    {id:11, nombre:"NICOLA CATENA", bodega:"Catena Zapata",variedad:"Bonarda", año:2021, precio:11500, cantidad: 1, img:"assets/NICOLA CATENA BONARDA.jpeg"},
+    {id:12, nombre:"ESMERALDA", bodega:"Esmeralda",variedad:"Malbec", año:2020, precio:850, cantidad: 1, img:"assets/ESMERALDA MALBEC.jpeg"},
+    {id:13, nombre:"LAS PERDICES RESERVA", bodega:"Las Perdices",variedad:"Cabernet Sauvignon", año:2022, precio:1300, cantidad: 1, img:"assets/LAS PERDICES RESERVA CABERNET SAUVIGNON.jpeg"},
+    {id:14, nombre:"CASA BOHER GRAN RESERVA", bodega:"Casa Boher",variedad:"Cabernet Sauvignon", año:2021, precio:5600, cantidad: 1, img:"assets/CASA BOHER GRAN RESERVA.jpeg"},
+    {id:15, nombre:"SUSANA BALBO SIGNATURE", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2021, precio:2250, cantidad: 1, img:"assets/SUSANA BALBO SIGNATURE.jpeg"},
+    {id:16, nombre:"CRIOS", bodega:"Susana Balbo Wines",variedad:"Chardonnay", año:2021, precio:875, cantidad: 1, img:"assets/CRIOS CHARDONNAY.jpeg"},
+    {id:17, nombre:"SUSANA BALBO LATE HARVEST", bodega:"Susana Balbo Wines",variedad:"Malbec", año:2021, precio:2100, cantidad: 1, img:"assets/SUSANA BALBO LATE HARVEST MALBEC.jpeg"},
+    {id:18, nombre:"ALTALAND", bodega:"Altaland",variedad:"Cabernet Sauvignon", año:2022, precio:1600, cantidad: 1, img:"assets/ALTALAND CABERNET SAUVIGNON.jpeg"},
+    {id:19, nombre:"BRAMARE LUJÁN DE CUYO", bodega:"Viña de Cobos",variedad:"Cabernet Sauvignon", año:2021, precio:7500, cantidad: 1, img:"assets/BRAMARE LUJÁN DE CUYO.jpeg"},
+    {id:20, nombre:"NOEMIA", bodega:"Noemia",variedad:"Malbec", año:2019, precio:32950, cantidad: 1, img:"assets/NOEMIA MALBEC 2019.jpeg"},
+    {id:21, nombre:"DE ANGELES VIÑA 1924", bodega:"Viña 1924 De Ángeles",variedad:"Cabernet Sauvignon", año:2018, precio:7500, cantidad: 1, img:"assets/DE ANGELES VIÑA 1924 GRAN CABERNET SAUVIGNON.jpeg"},
+  ];

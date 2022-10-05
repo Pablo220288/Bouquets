@@ -1169,7 +1169,7 @@ main .contact-conten .contacto-form-info .contact-info .redes div .icono-items {
 }
 .footer .line {
   width: 90%;
-  border: 1px solid #000000;
+  border: 1.5px solid #000000;
 }
 .footer .footer-tarjetas {
   width: 90%;
@@ -1194,7 +1194,7 @@ main .contact-conten .contacto-form-info .contact-info .redes div .icono-items {
   align-items: center;
   width: 90%;
   margin: auto;
-  padding: 10px 0px;
+  padding: 10px 0px 20px 0px;
   color: #000000;
 }
 .footer .copy .footerDisen a {

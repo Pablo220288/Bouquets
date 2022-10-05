@@ -47,17 +47,6 @@ html {
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
-.lds-ring .loader-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-family: Logo;
-  font-size: 3rem;
-  font-weight: 700;
-  margin-top: 9px;
-}
 
 @keyframes lds-ring {
   0% {
@@ -288,21 +277,6 @@ html {
   -o-transform: skewY(-10deg);
 }
 .nav-mobile .nav-mobile-container a:nth-child(3) {
-  -webkit-transform: skewY(-10deg);
-  -moz-transform: skewY(-10deg);
-  -o-transform: skewY(-10deg);
-}
-.nav-mobile .nav-mobile-container a:nth-child(4) {
-  -webkit-transform: skewY(10deg);
-  -moz-transform: skewY(10deg);
-  -o-transform: skewY(10deg);
-}
-.nav-mobile .nav-mobile-container a:nth-child(4) p {
-  -webkit-transform: skewY(-10deg);
-  -moz-transform: skewY(-10deg);
-  -o-transform: skewY(-10deg);
-}
-.nav-mobile .nav-mobile-container a:nth-child(5) {
   -webkit-transform: skewY(-10deg);
   -moz-transform: skewY(-10deg);
   -o-transform: skewY(-10deg);
@@ -682,6 +656,87 @@ main .productosDestacados .dots .glider-dot:hover, main .productosGenerales .dot
 main .productosDestacados .dots .glider-dot.active, main .productosGenerales .dots .glider-dot.active {
   opacity: 1;
 }
+main .productosGenerales .productosGenerales-title {
+  padding: 20px 0px;
+}
+main .productosGenerales .filtros {
+  width: 700px;
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 0px 50px 0px;
+}
+main .productosGenerales .filtros .filtros-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+main .productosGenerales .filtros .filtros-title .title-icono {
+  font-size: 1.5rem;
+  color: #444;
+}
+main .productosGenerales .filtros .filtros-title .title-text {
+  font-size: 1rem;
+  color: #444;
+  text-transform: uppercase;
+}
+main .productosGenerales .filtros .filtros-selects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select .select-img {
+  width: 27px;
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select .select-css {
+  display: block;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.4em 1.4em 0.3em 0.8em;
+  width: 250px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  transition: 0.3s;
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select .select-css:-ms-expand {
+  display: none;
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select .select-css:hover {
+  box-shadow: 0 0 5px rgba(59, 153, 252, 0.7);
+}
+main .productosGenerales .filtros .filtros-selects .filtros-select .select-css:focus {
+  box-shadow: 0 0 5px rgba(59, 153, 252, 0.7);
+  outline: none;
+}
 main .productosGenerales .generales {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
@@ -698,7 +753,6 @@ main .contact-conten {
   align-items: center;
   background-color: #a80000;
   width: 100%;
-  height: 460px;
   position: relative;
   z-index: 0;
   padding: 50px 0px;
@@ -714,13 +768,22 @@ main .contact-conten .wabeContact img {
   width: 100%;
   height: 100px;
 }
-main .contact-conten h3 {
+main .contact-conten .contacto-form-info {
+  width: 90%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+}
+main .contact-conten .contacto-form-info h3 {
   font-size: 3rem;
   font-family: Logo;
   font-weight: 500;
   text-align: center;
 }
-main .contact-conten .form-contact {
+main .contact-conten .contacto-form-info .form-contact {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -728,15 +791,15 @@ main .contact-conten .form-contact {
   align-items: center;
   gap: 30px;
   width: 90%;
-  max-width: 320px;
+  max-width: 400px;
 }
-main .contact-conten .form-contact .contact-nombre, main .contact-conten .form-contact .contact-text, main .contact-conten .form-contact .contact-email {
+main .contact-conten .contacto-form-info .form-contact .contact-nombre, main .contact-conten .contacto-form-info .form-contact .contact-text, main .contact-conten .contacto-form-info .form-contact .contact-email {
   position: relative;
   width: 90%;
   max-width: 400px;
   margin: auto;
 }
-main .contact-conten .form-contact .contact-nombre .contact-nombre-input, main .contact-conten .form-contact .contact-text .contact-nombre-input, main .contact-conten .form-contact .contact-text .contact-text-textarea, main .contact-conten .form-contact .contact-email .contact-nombre-input, main .contact-conten .form-contact .contact-email .contact-email-input {
+main .contact-conten .contacto-form-info .form-contact .contact-nombre .contact-nombre-input, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-nombre-input, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-text-textarea, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-nombre-input, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-email-input {
   width: 100%;
   position: relative;
   z-index: 1;
@@ -746,20 +809,20 @@ main .contact-conten .form-contact .contact-nombre .contact-nombre-input, main .
   outline: none;
   padding: 5px;
 }
-main .contact-conten .form-contact .contact-nombre .contact-nombre-label, main .contact-conten .form-contact .contact-text .contact-nombre-label, main .contact-conten .form-contact .contact-text .contact-text-label, main .contact-conten .form-contact .contact-email .contact-nombre-label, main .contact-conten .form-contact .contact-email .contact-email-label {
+main .contact-conten .contacto-form-info .form-contact .contact-nombre .contact-nombre-label, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-nombre-label, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-text-label, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-nombre-label, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-email-label {
   position: absolute;
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
   transition: all 300ms ease;
 }
-main .contact-conten .form-contact .contact-nombre .contact-label-up, main .contact-conten .form-contact .contact-text .contact-label-up, main .contact-conten .form-contact .contact-email .contact-label-up {
+main .contact-conten .contacto-form-info .form-contact .contact-nombre .contact-label-up, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-label-up, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-label-up {
   transition: all 300ms ease;
   top: -10px;
   left: 0;
   font-size: 0.7rem;
 }
-main .contact-conten .form-contact .contact-nombre .contact-nombre-mensaje, main .contact-conten .form-contact .contact-text .contact-nombre-mensaje, main .contact-conten .form-contact .contact-text .contact-text-mensaje, main .contact-conten .form-contact .contact-email .contact-nombre-mensaje, main .contact-conten .form-contact .contact-email .contact-email-mensaje {
+main .contact-conten .contacto-form-info .form-contact .contact-nombre .contact-nombre-mensaje, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-nombre-mensaje, main .contact-conten .contacto-form-info .form-contact .contact-text .contact-text-mensaje, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-nombre-mensaje, main .contact-conten .contacto-form-info .form-contact .contact-email .contact-email-mensaje {
   position: absolute;
   bottom: -25px;
   left: 50%;
@@ -773,7 +836,7 @@ main .contact-conten .form-contact .contact-nombre .contact-nombre-mensaje, main
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
   opacity: 0;
 }
-main .contact-conten .form-contact .contact-email .email-ok {
+main .contact-conten .contacto-form-info .form-contact .contact-email .email-ok {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -782,26 +845,26 @@ main .contact-conten .form-contact .contact-email .email-ok {
   width: 100px;
   background-color: #000;
 }
-main .contact-conten .form-contact .contact-email .chackEmail {
+main .contact-conten .contacto-form-info .form-contact .contact-email .chackEmail {
   opacity: 0;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
 }
-main .contact-conten .form-contact .contact-email .chackEmailShow {
+main .contact-conten .contacto-form-info .form-contact .contact-email .chackEmailShow {
   opacity: 1;
 }
-main .contact-conten .form-contact .contact-email .shake-horizontal {
+main .contact-conten .contacto-form-info .form-contact .contact-email .shake-horizontal {
   -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
-main .contact-conten .form-contact .contact-text .contact-text-textarea {
+main .contact-conten .contacto-form-info .form-contact .contact-text .contact-text-textarea {
   resize: vertical;
   min-height: 50px;
   max-height: 100px;
 }
-main .contact-conten .form-contact .contact-enviado-mensaje {
+main .contact-conten .contacto-form-info .form-contact .contact-enviado-mensaje {
   position: absolute;
   bottom: -95px;
   left: 50%;
@@ -815,7 +878,7 @@ main .contact-conten .form-contact .contact-enviado-mensaje {
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
   opacity: 0;
 }
-main .contact-conten .form-contact .buttonContacto {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto {
   position: absolute;
   background-color: transparent;
   bottom: -70px;
@@ -831,52 +894,88 @@ main .contact-conten .form-contact .buttonContacto {
   font-size: 1rem;
   overflow: hidden;
 }
-main .contact-conten .form-contact .buttonContacto span {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto span {
   position: absolute;
   background: #000000;
   transition: 0.5s;
 }
-main .contact-conten .form-contact .buttonContacto span:nth-child(1) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto span:nth-child(1) {
   width: 100%;
   height: 2px;
   top: 0;
   left: -100%;
 }
-main .contact-conten .form-contact .buttonContacto span:nth-child(2) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto span:nth-child(2) {
   width: 100%;
   height: 2px;
   bottom: 0;
   right: -100%;
 }
-main .contact-conten .form-contact .buttonContacto span:nth-child(3) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto span:nth-child(3) {
   width: 2px;
   height: 100%;
   bottom: -100%;
   left: 0;
 }
-main .contact-conten .form-contact .buttonContacto span:nth-child(4) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto span:nth-child(4) {
   width: 2px;
   height: 100%;
   top: -100%;
   right: 0;
 }
-main .contact-conten .form-contact .buttonContacto:hover span:nth-child(1) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto:hover span:nth-child(1) {
   left: 0;
 }
-main .contact-conten .form-contact .buttonContacto:hover span:nth-child(2) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto:hover span:nth-child(2) {
   right: 0;
 }
-main .contact-conten .form-contact .buttonContacto:hover span:nth-child(3) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto:hover span:nth-child(3) {
   bottom: 0;
 }
-main .contact-conten .form-contact .buttonContacto:hover span:nth-child(4) {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto:hover span:nth-child(4) {
   top: 0;
 }
-main .contact-conten .form-contact .buttonContacto:hover {
+main .contact-conten .contacto-form-info .form-contact .buttonContacto:hover {
   font-size: 1.1rem;
 }
-main .contact-conten .form-contact .show {
+main .contact-conten .contacto-form-info .form-contact .show {
   animation: showMensaje 5s;
+}
+main .contact-conten .contacto-form-info .contact-info {
+  margin-top: 50px;
+}
+main .contact-conten .contacto-form-info .contact-info h4, main .contact-conten .contacto-form-info .contact-info ul, main .contact-conten .contacto-form-info .contact-info p {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+main .contact-conten .contacto-form-info .contact-info ul li {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+main .contact-conten .contacto-form-info .contact-info ul li .icono {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+main .contact-conten .contacto-form-info .contact-info ul li p {
+  margin-bottom: 0.5rem;
+}
+main .contact-conten .contacto-form-info .contact-info .redes {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-top: 20px;
+}
+main .contact-conten .contacto-form-info .contact-info .redes div {
+  transition: transform 0.5s ease;
+}
+main .contact-conten .contacto-form-info .contact-info .redes div:hover {
+  transform: scale(1.3);
+}
+main .contact-conten .contacto-form-info .contact-info .redes div .icono-items {
+  color: #000;
+  font-size: 25px;
 }
 
 .vinos {
@@ -890,6 +989,8 @@ main .contact-conten .form-contact .show {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .vinos .price {
   position: absolute;
@@ -1014,6 +1115,48 @@ main .contact-conten .form-contact .show {
   max-width: 300px;
 }
 
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (min-width: 688px) {
+  main .productosGenerales .filtros .filtros-selects {
+    flex-direction: row;
+  }
+}
+@media (min-width: 850px) {
+  main .contact-conten {
+    height: 450px;
+  }
+  main .contact-conten .contacto-form-info {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  main .contact-conten .contacto-form-info .contact-info {
+    margin-top: 0px;
+  }
+}
 .footer {
   width: 100%;
   text-align: right;
@@ -1022,10 +1165,28 @@ main .contact-conten .form-contact .show {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 .footer .line {
   width: 90%;
   border: 1px solid #000000;
+}
+.footer .footer-tarjetas {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer .footer-tarjetas img {
+  width: 50px;
+  border-radius: 5px;
+}
+.footer .footer-text {
+  width: 90%;
+  text-align: center;
+  font-size: 0.8rem;
 }
 .footer .copy {
   display: flex;

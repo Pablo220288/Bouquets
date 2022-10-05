@@ -113,7 +113,10 @@ let cargaDom = async () => {
     respuestaData.forEach((producto) => {
         cargaDomProductoGenerales(producto)
     });
-    
+    //Cargamos Items en los Filtros
+    bodegas(respuestaData);
+    variedades(respuestaData);
+
     let respuesta2 = await fetch("./json/destacados.json");
     let respuestaData2 = await respuesta2.json();
 
@@ -125,6 +128,8 @@ let cargaDom = async () => {
     slaider();
     //Aplicamos Local Storage
     storage();
+
+
 };
 
 // Evento Formulario Campo Nombre

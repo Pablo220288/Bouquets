@@ -204,21 +204,6 @@
                 -moz-transform: skewY(-10deg) ;
                 -o-transform: skewY(-10deg);
             }
-            &:nth-child(4){
-                -webkit-transform: skewY(10deg);
-                -moz-transform: skewY(10deg) ;
-                -o-transform: skewY(10deg);
-                p{
-                    -webkit-transform: skewY(-10deg);
-                    -moz-transform: skewY(-10deg) ;
-                    -o-transform: skewY(-10deg);
-                }
-            }
-            &:nth-child(5){
-                -webkit-transform: skewY(-10deg);
-                -moz-transform: skewY(-10deg) ;
-                -o-transform: skewY(-10deg);
-            }
             &::before{
                 content: '';
                 position: absolute;

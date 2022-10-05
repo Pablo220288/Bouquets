@@ -168,6 +168,88 @@ main{
         }
     }
     .productosGenerales{
+        .productosGenerales-title{
+            padding: 20px 0px;
+        }
+        .filtros{
+            width: 700px;
+            max-width: 90%; 
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 0px 0px 50px 0px;
+            .filtros-title{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                .title-icono{
+                    font-size: 1.5rem;
+                    color: #444;
+                }
+                .title-text{
+                    font-size: 1rem;
+                    color: #444;
+                    text-transform: uppercase;
+                }
+            }
+            .filtros-selects{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                .filtros-select{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    .select-img{
+                        width: 27px;
+                    }
+                    .select-css {
+                        display: block;
+                        font-size: 16px;
+                        font-family: 'Arial', sans-serif;
+                        font-weight: 400;
+                        color: #444;
+                        line-height: 1.3;
+                        padding: .4em 1.4em .3em .8em;
+                        width: 250px;
+                        max-width: 100%; 
+                        box-sizing: border-box;
+                        margin: 0;
+                        border: 1px solid #aaa;
+                        box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+                        border-radius: 6px;
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        background-color: #fff;
+                        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+                          linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+                        background-repeat: no-repeat, repeat;
+                        background-position: right .7em top 50%, 0 0;
+                        background-size: .65em auto, 100%;
+                        transition: 0.3s;
+                        &:-ms-expand {
+                            display: none;
+                        }
+                        &:hover {
+                            box-shadow: 0 0 5px rgba(59, 153, 252, .7);
+                        }
+                        &:focus {
+                            box-shadow: 0 0 5px rgba(59, 153, 252, .7);
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
         .generales{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%,20rem),1fr));
@@ -177,7 +259,6 @@ main{
             justify-items: center;
         }
     }
-
     .contact-conten{
         display: flex;
         flex-direction: column;
@@ -186,7 +267,6 @@ main{
         align-items: center;
         background-color: #a80000;
         width: 100%;
-        height: 460px;
         position: relative;
         z-index: 0;
         padding: 50px 0px;
@@ -201,52 +281,125 @@ main{
                 height: 100px;
             }
         }
-        h3{
-            font-size: 3rem;
-            font-family: Logo;
-            font-weight: 500;
-            text-align: center;
-        }
-        .form-contact{
-            position: relative;
+        .contacto-form-info{
+            width: 90%;
+            margin-top: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 30px;
-            width: 90%;
-            max-width: 320px;
-            .contact-nombre{
+            gap: 75px;
+            h3{
+                font-size: 3rem;
+                font-family: Logo;
+                font-weight: 500;
+                text-align: center;
+            }
+            .form-contact{
                 position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
                 width: 90%;
                 max-width: 400px;
-                margin: auto;
-                .contact-nombre-input{
-                    width: 100%;
+                .contact-nombre{
                     position: relative;
-                    z-index: 1;
-                    border: none;
-                    border-bottom: 1px solid #000000;
-                    background-color: transparent;
-                    outline: none;
-                    padding: 5px;
+                    width: 90%;
+                    max-width: 400px;
+                    margin: auto;
+                    .contact-nombre-input{
+                        width: 100%;
+                        position: relative;
+                        z-index: 1;
+                        border: none;
+                        border-bottom: 1px solid #000000;
+                        background-color: transparent;
+                        outline: none;
+                        padding: 5px;
+                    }
+                    .contact-nombre-label{
+                        position: absolute;
+                        top: 50%;
+                        left: 5px;
+                        transform: translateY(-50%);
+                        transition: all 300ms ease;
+                    }
+                    .contact-label-up{
+                        transition: all 300ms ease;
+                        top: -10px;
+                        left: 0;
+                        font-size: 0.7rem;
+                    }
+                    .contact-nombre-mensaje{
+                        position: absolute;
+                        bottom: -25px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-size: 0.8rem;
+                        width: 80%;
+                        text-align: center;
+                        background-color: #00000085;
+                        color: #ffffff;
+                        border-radius: 6px;
+                        box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, 
+                        rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
+                        opacity: 0;
+                    }
                 }
-                .contact-nombre-label{
+                .contact-email{
+                    @extend .contact-nombre;
+                    .email-ok{
+                        position: absolute;
+                        z-index: 2;
+                        top: 50%;
+                        right: 10px;
+                        transform: translateY(-50%);
+                        width: 100px;
+                        background-color: #000
+                    }
+                    .contact-email-input{
+                        @extend .contact-nombre-input;
+                    }
+                    .contact-email-label{
+                        @extend .contact-nombre-label;
+                    }
+                    .chackEmail{
+                        opacity: 0;
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        transform: translateY(-50%)
+                    }
+                    .chackEmailShow{
+                        opacity: 1;
+                    }
+                    .shake-horizontal {
+                        -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                    }
+                    .contact-email-mensaje{
+                        @extend .contact-nombre-mensaje;
+                    }
+                }
+                .contact-text{
+                    @extend .contact-nombre;
+                    .contact-text-textarea{
+                        @extend .contact-nombre-input;
+                        resize:vertical;
+                        min-height: 50px;
+                        max-height: 100px;
+                    }.contact-text-label{
+                        @extend .contact-nombre-label;
+                    }
+                    .contact-text-mensaje{
+                        @extend .contact-nombre-mensaje;
+                    }
+                }
+                .contact-enviado-mensaje{
                     position: absolute;
-                    top: 50%;
-                    left: 5px;
-                    transform: translateY(-50%);
-                    transition: all 300ms ease;
-                }
-                .contact-label-up{
-                    transition: all 300ms ease;
-                    top: -10px;
-                    left: 0;
-                    font-size: 0.7rem;
-                }
-                .contact-nombre-mensaje{
-                    position: absolute;
-                    bottom: -25px;
+                    bottom: -95px;
                     left: 50%;
                     transform: translateX(-50%);
                     font-size: 0.8rem;
@@ -259,133 +412,105 @@ main{
                     rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
                     opacity: 0;
                 }
-            }
-            .contact-email{
-                @extend .contact-nombre;
-                .email-ok{
+                .buttonContacto{
                     position: absolute;
-                    z-index: 2;
-                    top: 50%;
-                    right: 10px;
-                    transform: translateY(-50%);
-                    width: 100px;
-                    background-color: #000
-                }
-                .contact-email-input{
-                    @extend .contact-nombre-input;
-                }
-                .contact-email-label{
-                    @extend .contact-nombre-label;
-                }
-                .chackEmail{
-                    opacity: 0;
-                    position: absolute;
-                    top: 50%;
-                    right: 10px;
-                    transform: translateY(-50%)
-                }
-                .chackEmailShow{
-                    opacity: 1;
-                }
-                .shake-horizontal {
-                    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-                    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-                }
-                .contact-email-mensaje{
-                    @extend .contact-nombre-mensaje;
-                }
-            }
-            .contact-text{
-                @extend .contact-nombre;
-                .contact-text-textarea{
-                    @extend .contact-nombre-input;
-                    resize:vertical;
-                    min-height: 50px;
-                    max-height: 100px;
-                }.contact-text-label{
-                    @extend .contact-nombre-label;
-                }
-                .contact-text-mensaje{
-                    @extend .contact-nombre-mensaje;
-                }
-            }
-            .contact-enviado-mensaje{
-                position: absolute;
-                bottom: -95px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 0.8rem;
-                width: 80%;
-                text-align: center;
-                background-color: #00000085;
-                color: #ffffff;
-                border-radius: 6px;
-                box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.45em, 
-                rgba(90, 125, 188, 0.05) 0px 0.45em 1em;
-                opacity: 0;
-            }
-            .buttonContacto{
-                position: absolute;
-                background-color: transparent;
-                bottom: -70px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 60%;
-                height: 40px;
-                border: none;
-                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-                transition: all 500ms ease;
-                cursor: pointer;
-                outline: none;
-                font-size: 1rem;
-                overflow: hidden;
-                span {
-                    position: absolute;
-                    background: #000000;;
-                    transition: .5s;
-                    &:nth-child(1) {
-                        width: 100%;
-                        height: 2px;
-                        top: 0;
-                        left: -100%;
+                    background-color: transparent;
+                    bottom: -70px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60%;
+                    height: 40px;
+                    border: none;
+                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 500ms ease;
+                    cursor: pointer;
+                    outline: none;
+                    font-size: 1rem;
+                    overflow: hidden;
+                    span {
+                        position: absolute;
+                        background: #000000;;
+                        transition: .5s;
+                        &:nth-child(1) {
+                            width: 100%;
+                            height: 2px;
+                            top: 0;
+                            left: -100%;
+                        }
+                        &:nth-child(2) {
+                            width: 100%;
+                            height: 2px;
+                            bottom: 0;
+                            right: -100%;
+                        }
+                        &:nth-child(3) {
+                            width: 2px;
+                            height: 100%;
+                            bottom: -100%;
+                            left: 0;
+                        }
+                        &:nth-child(4) {
+                            width: 2px;
+                            height: 100%;
+                            top: -100%;
+                            right: 0;
+                        }
                     }
-                    &:nth-child(2) {
-                        width: 100%;
-                        height: 2px;
-                        bottom: 0;
-                        right: -100%;
-                    }
-                    &:nth-child(3) {
-                        width: 2px;
-                        height: 100%;
-                        bottom: -100%;
+                    &:hover span:nth-child(1) {
                         left: 0;
                     }
-                    &:nth-child(4) {
-                        width: 2px;
-                        height: 100%;
-                        top: -100%;
+                    &:hover span:nth-child(2) {
                         right: 0;
                     }
+                    &:hover span:nth-child(3) {
+                        bottom: 0;
+                    }
+                    &:hover span:nth-child(4) {
+                        top: 0;
+                    }
+                    &:hover{
+                        font-size: 1.1rem;
+                    }
                 }
-                &:hover span:nth-child(1) {
-                    left: 0;
-                }
-                &:hover span:nth-child(2) {
-                    right: 0;
-                }
-                &:hover span:nth-child(3) {
-                    bottom: 0;
-                }
-                &:hover span:nth-child(4) {
-                    top: 0;
-                }
-                &:hover{
-                    font-size: 1.1rem;
+                .show{
+                    animation: showMensaje 5s ;
                 }
             }
-            .show{
-                animation: showMensaje 5s ;
+            .contact-info {
+                margin-top: 50px;
+                h4, ul, p {
+                    text-align: center;
+                    margin: 0 0 1rem 0;
+                }
+                ul li {
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    .icono{
+                        margin-right: 10px;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    p{
+                        margin-bottom: 0.5rem;
+                    }
+                }
+                .redes{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-content: center;
+                    margin-top: 20px;
+                    div{
+                        transition: transform 0.5s ease;
+                        &:hover{
+                            transform: scale(1.3);
+                        }
+                        .icono-items{
+                            color: #000;
+                            font-size: 25px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -401,6 +526,8 @@ main{
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     .price{
         position: absolute;
         top: 10px;
@@ -520,4 +647,56 @@ main{
 }
 .masCantidad{
     max-width: 300px;
+}
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (min-width:688px) {
+    main{
+        .productosGenerales{
+            .filtros{
+                .filtros-selects{
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+}
+@media (min-width:850px) {
+    main{
+        .contact-conten{
+            height: 450px;
+            .contacto-form-info{
+                width: 90%;
+                flex-direction: row;
+                justify-content: space-evenly;
+                .contact-info {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
 }

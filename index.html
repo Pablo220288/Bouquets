@@ -8,9 +8,12 @@
     <title>Bouquet | Tienda de Vinos </title>
     <link rel="icon" href="assets/vino.png">
 
-    <!--Libreria-->
+    <!--Glider-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
+    <!--Toastify-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="sass/css/styles.css">
 </head>
@@ -22,8 +25,6 @@
                 <div class="logo"><p>B</p></div>
                 <div class="menu">
                     <a href="#home" data-url="home" class="menu active"><span></span>Inicio</a>
-                    <a href="#" data-url="nosotros" class="menu"><span></span>Nosotros</a>
-                    <a href="#" data-url="blog" class="menu"><span></span>Blog</a>
                     <a href="#productos" data-url="productos" class="menu"><span></span>Productos</a>
                     <a href="#contacto" data-url="contacto" class="menu"><span></span>Contacto</a>
                     <a href="#" id="carrito"><span></span><ion-icon class="shop-nav" name="cart-outline"></ion-icon><div id="cant-carrito-total" class="cant-carrito-total"></div></a>
@@ -40,10 +41,8 @@
         </nav>
         <nav class="nav-mobile">
             <div class="nav-mobile-container">
-                <a href="#"><p>Inicio</p></a>
-                <a href="#"><p>Nosotros</p></a>
-                <a href="#"><p>Blog</p></a>
-                <a href="#"><p>Productos</p></a>
+                <a href="#home"><p>Inicio</p></a>
+                <a href="#productos"><p>Productos</p></a>
                 <a href="#contacto"><p>Contacto</p></a>
             </div>
         </nav>
@@ -89,12 +88,10 @@
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
         </div>
-        <div class="seccion" id="nosotros"></div>
-        <div class="seccion" id="blog"></div>
         <!--Seccion Productos Destacados-->
         <div class="productosDestacados seccion" id="productos">
-            <h3>Productos Destacados</h3>
-            <div class="carrusel">
+            <h3 data-aos="fade-up">Productos Destacados</h3>
+            <div class="carrusel" data-aos="fade-up">
                 <button aria-label="Previous" class="carrusel-anterior">
                     <ion-icon class="carrusel-arrow" name="chevron-back-outline"></ion-icon>
                 </button>
@@ -108,43 +105,105 @@
         </div>
         <!--Seccion Productos Generales-->
         <div class="productosGenerales" id="productosGenerales">
-            <h3>Nuestros Vinos</h3>
-            <div class="generales" id="generales"></div>
+            <h3 class="productosGenerales-title" data-aos="fade-up">Nuestros Vinos</h3>
+            <di class="filtros">
+                <div class="filtros-title" data-aos="fade-up" data-aos-delay="50">
+                    <ion-icon class="title-icono" name="reorder-four"></ion-icon>
+                    <p class="title-text">Filtros</p>
+                </div>
+                <div class="filtros-selects" data-aos="fade-up" data-aos-delay="100">
+                    <div class="filtros-select">
+                        <img class="select-img" src="assets/barril-de-vino.png" alt="Barril y Botella">
+                        <select name="Bodega" class="select-css" id="bodega">
+                            <option selected>Todas las Bodegas</option>
+                        </select>
+                    </div>
+                    <div class="filtros-select" data-aos="fade-up" data-aos-delay="150">
+                        <img class="select-img" src="assets/uvas.png" alt="Uvas">
+                        <select name="Variedad" class="select-css" id="variedad">
+                            <option selected>Todas las Variedades</option>
+                        </select>
+                    </div>
+                </div>
+            </di>
+            <div class="vinosGeneral">
+                <div class="generales" id="generales"></div>
+            </div>
         </div>
         <!--Formulario de Contacto-->
         <div class="contact-conten seccion" id="contacto">
             <div class="wabeContact">
                 <img src="assets/wabe.png" alt="Wabe">
             </div>
-            <h3>Contacto</h3>
-            <form id="formulario" class="form-contact">
-                <div class="contact-nombre">
-                    <input class="contact-nombre-input" type="text" id="nombreInput">
-                    <label class="contact-nombre-label" id="nombreLabel">Nombre</label>
-                    <p class="contact-nombre-mensaje" id="contact-nombre-mensaje">Compartinos tu Nombre</p>
+            <div class="contacto-form-info">
+                <h3>Contacto</h3>
+                <form id="formulario" class="form-contact">
+                    <div class="contact-nombre">
+                        <input class="contact-nombre-input" type="text" id="nombreInput">
+                        <label class="contact-nombre-label" id="nombreLabel">Nombre</label>
+                        <p class="contact-nombre-mensaje" id="contact-nombre-mensaje">Compartinos tu Nombre</p>
+                    </div>
+                    <div class="contact-email" id="contact-email">
+                        <input class="contact-email-input" type="email" id="emailInput">
+                        <label class="contact-email-label" id="emailLabel">Email</label>
+                        <div id="chackEmail" class="chackEmail"><ion-icon name="checkmark-outline"></ion-icon></div>
+                        <p class="contact-email-mensaje" id="contact-email-mensaje">Compartinos tu Email</p>
+                    </div>
+                    <div class="contact-text">
+                        <textarea class="contact-text-textarea" id="textarea" ></textarea>
+                        <label class="contact-text-label" id="textareaLabel">Mensaje</label>
+                        <p class="contact-text-mensaje" id="contact-text-mensaje">Dejanos un Comentario</p>
+                    </div>
+                    <p class="contact-enviado-mensaje" id="contact-enviado-mensaje">Mensaje enviado. Gracias..!!</p>
+                    <button class="buttonContacto" type="submit">
+                        <span></span><span></span><span></span><span></span>
+                        Enviar
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <h4>Mas Info</h4>
+                    <ul>
+                        <li><ion-icon class="icono" name="location-outline"></ion-icon><p>Córdoba, Argentina</p></li>
+                        <li><ion-icon class="icono" name="call-outline"></ion-icon><p>+54 9 351 6342315</p></li>
+                        <li><ion-icon class="icono" name="mail-outline"></ion-icon><p>peh_tj@hotmail.com</p></li>
+                    </ul>
+                    <div class="redes">
+                        <div>
+                            <a class="icono-items" href=""><ion-icon name="logo-whatsapp"></ion-icon></i></a>
+                        </div>
+                        <div>
+                            <a class="icono-items" href=""><ion-icon name="logo-facebook"></ion-icon></i></a>
+                        </div>
+                        <div>
+                            <a class="icono-items" href=""><ion-icon name="logo-instagram"></ion-icon></i></a>
+                        </div>
+                        <div>
+                            <a class="icono-items" href=""><ion-icon name="logo-linkedin"></ion-icon></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-email" id="contact-email">
-                    <input class="contact-email-input" type="email" id="emailInput">
-                    <label class="contact-email-label" id="emailLabel">Email</label>
-                    <div id="chackEmail" class="chackEmail"><ion-icon name="checkmark-outline"></ion-icon></div>
-                    <p class="contact-email-mensaje" id="contact-email-mensaje">Compartinos tu Email</p>
-                </div>
-                <div class="contact-text">
-                    <textarea class="contact-text-textarea" id="textarea" ></textarea>
-                    <label class="contact-text-label" id="textareaLabel">Mensaje</label>
-                    <p class="contact-text-mensaje" id="contact-text-mensaje">Dejanos un Comentario</p>
-                </div>
-                <p class="contact-enviado-mensaje" id="contact-enviado-mensaje">Mensaje enviado. Gracias..!!</p>
-                <button class="buttonContacto" type="submit">
-                    <span></span><span></span><span></span><span></span>
-                    Enviar
-                </button>
-            </form>
+            </div>
         </div>
     </main>
     <footer>
         <div class="footer">
             <hr class="line">
+            <p class="footer-text">Aceptamos todos los medios de pago.</p>
+            <div class="footer-tarjetas">
+                <img src="assets/visa.png" alt="Tarjeta Visa">
+                <img src="assets/mastercard.png" alt="Tarjeta Mastercard">
+                <img src="assets/amex.png" alt="Tarjeta American Expres">
+                <img src="assets/diners.png" alt="Tarjeta Diners Club">
+                <img src="assets/banelco.png" alt="Tarjeta Banelco">
+                <img src="assets/cabal.png" alt="Tarjeta Cabal">
+                <img src="assets/tarjeta-naranja.png" alt="Tarjeta Naranja">
+                <img src="assets/tarjeta-shopping.png" alt="Tarjeta Shoping">
+                <img src="assets/mercadopago.png" alt="Mercado Pago">
+                <img src="assets/cencosud.png" alt="Tarjeta Cencosud">
+                <img src="assets/pagofacil.png" alt="Pago Facil">
+                <img src="assets/rapipago.png" alt="Rapi Pago">
+            </div>
+            <p class="footer-text">Beber con moderación. Prohibida la venta de alcohol a menores de 18 años. Las imágenes son meramente ilustrativas.</p>
             <div class="copy">
                 <span class="footerCopy">&copy;2022 - Buquets</span>
                 <span class="footerDisen"><a href="https://pablo220288.github.io/Portafolio_2022/" class="pablo" target="_blank">Pablo Hernandez</a></span>
@@ -153,14 +212,20 @@
     <!--Ionicons-->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!--Librerias-->
+    <!--Sweetalert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Glider-->
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+    <!--Toastify-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!--AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({duration: 2000,once:true});</script>
     <!--JavaScript-->
     <script src="js/stock.js"></script>
     <script src="js/append.js"></script>
     <script src="js/carrito.js"></script>
+    <script src="js/filtros.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

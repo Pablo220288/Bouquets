@@ -6,9 +6,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     .line{
         width: 90%;
         border: 1px solid #000000;
+    }
+    .footer-tarjetas{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        img{
+            width: 50px;
+            border-radius: 5px;
+        }
+    }
+    .footer-text{
+        width: 90%;
+        text-align: center;
+        font-size: 0.8rem;
     }
     .copy{
         display: flex;

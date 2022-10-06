@@ -30,12 +30,12 @@ const slaider = () => {
           next: '.carrusel-siguiente'
         },
         responsive: [
-            {breakpoint: 660,
+            {breakpoint: 760,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                 }},
-            {breakpoint: 1000,
+            {breakpoint: 1160,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,

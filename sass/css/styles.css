@@ -605,6 +605,8 @@ main .productosDestacados h3, main .productosGenerales h3 {
   padding: 20px 0px 50px 0px;
 }
 main .productosDestacados .carrusel, main .productosGenerales .carrusel {
+  width: 90%;
+  margin: auto;
   position: relative;
 }
 main .productosDestacados .carrusel .destacados, main .productosGenerales .carrusel .destacados {
@@ -628,32 +630,40 @@ main .productosDestacados .carrusel .carrusel-anterior, main .productosDestacado
   cursor: pointer;
 }
 main .productosDestacados .carrusel .carrusel-anterior .carrusel-arrow, main .productosDestacados .carrusel .carrusel-siguiente .carrusel-arrow, main .productosGenerales .carrusel .carrusel-anterior .carrusel-arrow, main .productosGenerales .carrusel .carrusel-siguiente .carrusel-arrow {
+  color: #444;
   opacity: 0.5;
   font-size: 1.5rem;
   transition: opacity 0.5s;
 }
 main .productosDestacados .carrusel .carrusel-anterior:hover .carrusel-arrow, main .productosDestacados .carrusel .carrusel-siguiente:hover .carrusel-arrow, main .productosGenerales .carrusel .carrusel-anterior:hover .carrusel-arrow, main .productosGenerales .carrusel .carrusel-siguiente:hover .carrusel-arrow {
+  color: #a80000;
   opacity: 1;
 }
 main .productosDestacados .carrusel .carrusel-anterior, main .productosGenerales .carrusel .carrusel-anterior {
-  left: 20px;
+  left: -20px;
 }
 main .productosDestacados .carrusel .carrusel-siguiente, main .productosGenerales .carrusel .carrusel-siguiente {
-  right: 20px;
+  right: -20px;
+}
+main .productosDestacados .dots, main .productosGenerales .dots {
+  align-items: center;
 }
 main .productosDestacados .dots .glider-dot, main .productosGenerales .dots .glider-dot {
   display: block;
-  width: 30px;
-  height: 4px;
-  background: #000000;
+  width: 8px;
+  height: 8px;
+  background: #444;
   opacity: 0.5;
-  border-radius: 0;
+  border-radius: 50%;
   transition: opacity 0.5s;
 }
 main .productosDestacados .dots .glider-dot:hover, main .productosGenerales .dots .glider-dot:hover {
   opacity: 1;
 }
 main .productosDestacados .dots .glider-dot.active, main .productosGenerales .dots .glider-dot.active {
+  width: 12px;
+  height: 12px;
+  background: #a80000;
   opacity: 1;
 }
 main .productosGenerales .productosGenerales-title {

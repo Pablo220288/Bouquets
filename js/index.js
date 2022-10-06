@@ -75,10 +75,24 @@ secciones.forEach(item => seccion.observe(item))
 const hamburger = document.querySelector('.hamburger');
 const nav_mobile = document.querySelector('.nav-mobile-container');
 
-hamburger.addEventListener('click', () => {
+let navItemMobile = document.getElementsByClassName('nav-mobile-item')
+
+let navMobileOpenClose = () => {
     hamburger.classList.toggle('is-active');
     nav_mobile.classList.toggle('is-active');
+}
+
+hamburger.addEventListener('click', () => {
+    navMobileOpenClose()
 });
+
+for (let i = 0; i < navItemMobile.length; i++) {
+    navItemMobile[i].addEventListener("click", function () {
+        setTimeout(() => {
+            navMobileOpenClose()
+        },200)
+    });
+}
 
 //Modal carrito
 const modalCarrito = document.getElementById('modal-carrito');

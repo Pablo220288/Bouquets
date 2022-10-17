@@ -118,22 +118,43 @@ let eliminarDelCarrito = (idProducto) => {
 };
 
 //Funcion para vaciar el carrito  
+function eliminarTodoElCarrito(){
+  Swal.fire({
+    title: 'Estás Seguro?',
+    text: `"Hay ${carrito.length} Vinos en la Bodega"`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, Vaciar!',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //Elimino las etiquetas
+      carrito.forEach((producto) => {
+        let elements = document.getElementsByClassName(`cantidad${producto.id}`);
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('cant-shop-active')
+        }
+      });
+      //Vacio el carrito
+      carrito.splice(0,carrito.length);
+      llenarCarrito();
+      incrementarCarrito();
+      //Cerramos el Modal del Carrito
+      modalCarrito.classList.remove('modal_show');
+      Swal.fire(
+        'Vaciado!',
+        'Su Bodega esta Vacia.',
+        'success'
+      )
+    }
+  })
+};
+
 let vaciarCarrito = document.getElementById('vaciar-carrito');
 vaciarCarrito.addEventListener('click', eliminarTodoElCarrito);
 
-function eliminarTodoElCarrito(){
-  //Elimino las etiquetas
-  carrito.forEach((producto) => {
-    let elements = document.getElementsByClassName(`cantidad${producto.id}`);
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.remove('cant-shop-active')
-    }
-  });
-  //Vacio el carrito
-  carrito.splice(0,carrito.length);
-  llenarCarrito();
-  incrementarCarrito();
-};
 
 //Funcion para aumentar cantidad en carrito
 let sumar = (idProducto) =>{
@@ -152,23 +173,3 @@ let restar = (idProducto) =>{
   cantShopCarrito(idProducto);
   incrementarCarrito();
 };
-
-//Esto lo pienso usar para despues ingresar mas items
-function ingresoDestacados(){
-    class Destacados{
-        constructor(id,nombre,bodega,variedad,año,precio,cantidad,img){
-          this.id = id;
-          this.nombre = nombre;
-          this.bodega = bodega;
-          this.variedad = variedad;
-          this.año = año;
-          this.precio = precio;
-          this.cantidad = cantidad;
-          this.img = img;
-        }
-        venta(){
-          this.cantidad = this.cantidad - 1;
-        }
-    }
-};
-

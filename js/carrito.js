@@ -118,6 +118,23 @@ let eliminarDelCarrito = (idProducto) => {
 };
 
 //Funcion para vaciar el carrito  
+let vaciar = () => {
+  //Elimino las etiquetas
+  carrito.forEach((producto) => {
+    let elements = document.getElementsByClassName(`cantidad${producto.id}`);
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('cant-shop-active')
+    }
+  });
+  //Vacio el carrito
+  carrito.splice(0,carrito.length);
+  llenarCarrito();
+  incrementarCarrito();
+  //Cerramos el Modal del Carrito
+  modalCarrito.classList.remove('modal_show');
+}
+
+//Vaciar Carrito
 function eliminarTodoElCarrito(){
   Swal.fire({
     title: 'Estás Seguro?',
@@ -130,19 +147,7 @@ function eliminarTodoElCarrito(){
     cancelButtonText: 'Cancelar',
   }).then((result) => {
     if (result.isConfirmed) {
-      //Elimino las etiquetas
-      carrito.forEach((producto) => {
-        let elements = document.getElementsByClassName(`cantidad${producto.id}`);
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].classList.remove('cant-shop-active')
-        }
-      });
-      //Vacio el carrito
-      carrito.splice(0,carrito.length);
-      llenarCarrito();
-      incrementarCarrito();
-      //Cerramos el Modal del Carrito
-      modalCarrito.classList.remove('modal_show');
+      vaciar()
       Swal.fire(
         'Vaciado!',
         'Su Bodega esta Vacia.',
@@ -151,10 +156,33 @@ function eliminarTodoElCarrito(){
     }
   })
 };
-
 let vaciarCarrito = document.getElementById('vaciar-carrito');
 vaciarCarrito.addEventListener('click', eliminarTodoElCarrito);
 
+//Comprar Carrito
+function comprar(){
+  Swal.fire({
+    title: 'Estás Seguro?',
+    text: `"Hay ${carrito.length} Vinos en la Bodega"`,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Comprar!',
+    cancelButtonText: 'Volver',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciar()
+      Swal.fire(
+        'Compra Realizada!',
+        'Gracias por su compra',
+        'success'
+      )
+    }
+  })
+};
+let comprarCarrito = document.getElementById('comprar');
+comprarCarrito.addEventListener('click', comprar);
 
 //Funcion para aumentar cantidad en carrito
 let sumar = (idProducto) =>{

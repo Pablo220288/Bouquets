@@ -656,6 +656,15 @@ main{
 .masCantidad{
     max-width: 300px;
 }
+.bivTZG > div{
+    &:nth-child(5){
+    display: none !important;}
+}
+.llyszt > div{
+    &:nth-child(5){
+    display: none !important;}
+}
+
 
 @-webkit-keyframes scale-in-center {
   0% {

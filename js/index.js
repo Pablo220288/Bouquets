@@ -100,14 +100,25 @@ const openCarrito = document.getElementById('carrito');
 const openCarritoXs = document.getElementById('carrito_xs');
 const closeCarrito = document.getElementById('close-carrito');
 
+const alertVacio = () => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El Carrito esta Vacio!',
+        footer: 'Vamos a llenar esa Bodega..!!'
+
+      })
+}
+
 openCarritoXs.addEventListener('click',(e) =>{
     e.preventDefault()
-    modalCarrito.classList.add('modal_show');
+    console.log(carrito.length);
+    carrito.length === 0 ? alertVacio() : modalCarrito.classList.add('modal_show');
 });
 
 openCarrito.addEventListener('click',(e) =>{
     e.preventDefault()
-    modalCarrito.classList.add('modal_show');
+    carrito.length === 0 ? alertVacio() : modalCarrito.classList.add('modal_show');
 });
 
 closeCarrito.addEventListener('click',() =>{
@@ -142,8 +153,6 @@ let cargaDom = async () => {
     slaider();
     //Aplicamos Local Storage
     storage();
-
-
 };
 
 // Evento Formulario Campo Nombre

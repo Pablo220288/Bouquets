@@ -1,0 +1,310 @@
+.wahtsapp_container{
+    display: inline-block;
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999999;
+    right: 0px;
+    left: auto;
+	-webkit-animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    .wahtsapp_pop{
+        width: 54px;
+        height: 54px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px;
+        border-radius: 50%;
+        display: flex;
+        -moz-box-pack: center;
+        justify-content: center;
+        -moz-box-align: center;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        outline: transparent;
+        background-color: #ffffff;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        transition: background-color 0.3s ease 0s;
+        &::before{
+            content: '1';
+            width: 15px;
+            height: 15px;
+            font-size: 0.6rem;
+            display: flex;
+            -moz-box-pack: center;
+            justify-content: center;
+            -moz-box-align: center;
+            align-items: center;
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            color: #ffffff;
+            background-color: #ff0000;
+            border-radius: 50%;
+        }
+        .wahtsapp_pop_icono{
+            font-size: 1.7rem;
+            color: #4fce5d;
+            transition: color 0.3s ease 0s;
+        }
+        &:hover{
+            background-color: #4fce5d;
+        }
+        &:hover .wahtsapp_pop_icono{
+            color: #ffffff;
+        }
+        .pulso{
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #4fce5d;
+            border-radius: 500px;
+            z-index: -1;
+        }
+    }
+    .wahtsapp_chat_container{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        pointer-events: none;
+        touch-action: none;
+        transition: opacity 0.3s ease 0s, margin 0.3s ease 0s, visibility 0.3s ease 0s;
+        background-color: rgb(255, 255, 255);
+        transform: translate3d(0px, 0px, 0px);
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        left: auto;
+        margin-right: 20px;
+        visibility: hidden;
+        opacity: 0;
+        margin-bottom: 80px;
+        .wahtsapp_chat_title{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #095e54;
+            padding: 24px 20px;
+            .title_img{
+                width: 60px;
+                height: 60px;
+                position: relative;
+                &::before{
+                    content:'';
+                    width: 10px;
+                    height: 10px;
+                    background-color: #4ad504;
+                    border-radius: 50%;
+                    border: 2px solid #095e54;
+                    position: absolute;
+                    bottom: 2px;
+                    right: 2px;
+                }
+                img{
+                    width: 100%;
+                }
+            }
+            .title_text{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-left: 16px;
+                .title_text_name{
+                    font-size: 1rem;
+                    color: #ffffff;
+                }
+                .title_text_subname{
+                    font-size: 13px;
+                    color: #ffffff;
+                }
+            }
+        }
+        .wahtsapp_chat{
+            width: 100%;
+            padding: 20px 20px 20px 10px;
+            background-color: rgb(230, 221, 212);
+            position: relative;
+            overflow: auto;
+            max-height: 382px;
+            background-image: url("../../assets/fondo.png");
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .chat_container{
+                width: 240px;
+                padding: 7px 14px 6px;
+                background-color: #ffffff;
+                border-radius: 0px 8px 8px;
+                box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                position: relative;
+                transition: display 0.3s ease 0s;
+                &:nth-child(1){
+                    display: none;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        background-image: url('../../assets/chat.png');
+                        background-position: 50% 50%;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        top: 0px;
+                        left: -12px;
+                        width: 12px;
+                        height: 19px;
+                    }
+                }
+                &:nth-child(2){
+                    display: none;
+                    border-radius: 8px 8px;
+                    gap: -10px;
+                }
+                &:nth-child(3){
+                    width: 54px;
+                    padding: 8px;
+                    display: flex;
+                    border-radius: 8px 8px;
+                    gap: -10px;
+                }
+                .chat_title{
+                    font-size: 13px;
+                    font-weight: 700;
+                    line-height: 18px;
+                    color: rgba(0, 0, 0, 0.4);
+                }
+                .chat_txt{
+                    font-size: 14px;
+                    line-height: 19px;
+                    margin-top: 4px;
+                    color: rgb(17, 17, 17);
+                }
+                .chat_hs{
+                    align-self: flex-end;
+                    text-align: right;
+                    margin-top: -5px;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: rgba(17, 17, 17, 0.5);
+                    margin-right: -8px;
+                    margin-bottom: -4px;
+                }
+                .chat_dots_container{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                    .chat_dots{
+                        width: 8px;
+                        height: 8px;
+                        background-color: #000000;
+                        border-radius: 50%;
+                        opacity: 0.3;
+                        animation: dots 1.2s linear infinite;
+                        &:nth-child(2){
+                            animation-delay: 0.4s;
+                        }
+                        &:nth-child(3){
+                            animation-delay: 0.8s;
+                        }
+                    }
+                }
+            }
+            .visible{
+                display: flex !important;
+            }
+            .hidden{
+                display: none !important;
+            }
+        }
+    }
+    .show{
+        visibility: visible;
+        opacity: 1;
+        margin-bottom: 96px;
+    }
+    .wahtsapp_send{
+        width: 100%;
+        padding: 20px;
+        .wahtsapp_send_enlace{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #14c656;
+            padding: 8px 0px;
+            border-radius: 50px;
+            pointer-events: all;
+            .wahtsapp_send_txt{
+                cursor: pointer;
+            }
+        }
+    }
+}
+@keyframes dots {
+    0%{
+        opacity: 0.3;
+    }
+    50%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 0.3;
+    }
+}
+.animate {
+    animation: latido 2s linear;
+}
+@keyframes latido {
+    0% { 
+        width:54px; 
+        height:54px; 
+        border:3px solid #4fce5d; 
+    }
+    100% { 
+        width:80px; 
+        height:80px; 
+        border:3px solid transparent; 
+    }
+}
+
+@-webkit-keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-bottom {
+    0% {
+      -webkit-transform: translateY(1000px);
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

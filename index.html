@@ -186,6 +186,41 @@
                 </div>
             </div>
         </div>
+        <div class="wahtsapp_container">
+            <a id="wahtsapp_pop" class="wahtsapp_pop"><ion-icon class="wahtsapp_pop_icono" name="logo-whatsapp"></ion-icon><span class="pulso"></span></a>
+            <div class="wahtsapp_chat_container">
+                <div class="wahtsapp_chat_title">
+                    <div class="title_img">
+                        <img src="assets/avatar.png" alt="Avatar">
+                    </div>
+                    <div class="title_text">
+                        <h2 class="title_text_name">Pablo Hernández</h2>
+                        <p class="title_text_subname">Full Stack Developer</p>
+                    </div>
+                </div>
+                <div class="wahtsapp_chat">
+                    <div id="chat_1" class="chat_container">
+                        <strong class="chat_title">Pablo Hernández</strong>
+                        <p class="chat_txt">Hola, como estas..? 👋</p>
+                        <span class="chat_hs">11:24</span>
+                    </div>
+                    <div id="chat_2" class="chat_container">
+                        <p class="chat_txt">En que te puedo ayudar?</p>
+                        <span class="chat_hs">11:24</span>
+                    </div>
+                    <div id="chat_dots" class="chat_container">
+                        <div class="chat_dots_container">
+                            <span class="chat_dots"></span>
+                            <span class="chat_dots"></span>
+                            <span class="chat_dots"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wahtsapp_send">
+                    <a href="https://api.whatsapp.com/send?phone=5493516342315&text=Hola%21%20Como%20estas.?%20" class="wahtsapp_send_enlace" target="_blank"><ion-icon class="wahtsapp_send_icono" name="logo-whatsapp"></ion-icon><strong class="wahtsapp_send_txt" >Iniciar Chat</strong></a>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer">
@@ -224,10 +259,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({duration: 2000,once:true});</script>
     <!--JavaScript-->
-    <script src="js/stock.js"></script>
     <script src="js/append.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/filtros.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/whatsapp.js"></script>
 </body>
 </html>
